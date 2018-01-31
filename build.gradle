@@ -11,9 +11,9 @@ buildscript {
 }
 
 apply plugin: 'java'
-//apply plugin: 'eclipse-wtp'
+apply plugin: 'eclipse-wtp'
 apply plugin: 'org.springframework.boot'
-//apply plugin: 'war'
+apply plugin: 'war'
 
 group = 'com.ciclobosque'
 version = '0.0.1-SNAPSHOT'
@@ -33,6 +33,8 @@ dependencies {
 //    compile('org.springframework.boot:spring-boot-starter-security')
     compile 'org.apache.tomcat:tomcat-dbcp:8.0.32'
     compile('org.springframework.boot:spring-boot-starter-data-rest')
+	compile("org.springframework:spring-web")
+    compile 'org.json:json:20171018'
     compile("com.fasterxml.jackson.core:jackson-databind")
 
 //	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')

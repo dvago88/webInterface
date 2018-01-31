@@ -1,10 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title>Login Form</title>
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+
+    <link rel="stylesheet" th:href="@{/css/cover.css}"/>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>This is a test</h1>
+<div id="login-button">
+    <img id="login" src="https://dqcgrsy5v35b9.cloudfront.net/cruiseplanner/assets/img/icons/login-w-icon.png"/>
+</div>
+<div id="barra" style="display: none;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:  #92D050;">
+        <a class="navbar-brand" href="#">CicloBosque</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div id="test" class="container" style="display:none;">
+    <ul class="imagenes">
+        <li class="imagen"><a class="link" href="#"><img width="100" th:src="@{/images/Imagen1.png}" alt=""/></a></li>
+        <li class="imagen"><a class="link" href="#"><img width="100" th:src="@{/images/Imagen2.png}" alt=""/></a></li>
+        <li class="imagen"><a class="link" href="#"><img width="100" th:src="@{/images/Imagen3.png}" alt=""/></a></li>
+        <li class="imagen"><a class="link" href="#"><img width="100" th:src="@{/images/Imagen4.png}" alt=""/></a></li>
+        <li class="imagen"><a class="link" href="#"><img width="100" th:src="@{/images/Imagen5.png}" alt=""/></a></li>
+        <li class="imagen"><a class="link" href="#"><img width="100" th:src="@{/images/Imagen6.png}" alt=""/></a></li>
+        <li class="imagen"><a class="link" href="#"><img width="100" th:src="@{/images/Imagen7.png}" alt=""/></a></li>
+        <li class="imagen"><a class="link" href="#"><img width="100" th:src="@{/images/Imagen8.png}" alt=""/></a></li>
+        <li class="imagen"><a class="link" href="#"><img width="100" th:src="@{/images/Imagen9.png}" alt=""/></a></li>
+        <li class="imagen"><a class="link" href="#"><img width="100" th:src="@{/images/Imagen10.png}" alt=""/></a></li>
+        <li class="imagen"><a class="link" href="#"><img width="100" th:src="@{/images/Imagen11.png}" alt=""/></a></li>
+        <li class="imagen"><a class="link" href="#"><img width="100" th:src="@{/images/Imagen12.png}" alt=""/></a></li>
+    </ul>
+</div>
+
+<script th:src="@{/javascript/app.js}"></script>
 </body>
 </html>

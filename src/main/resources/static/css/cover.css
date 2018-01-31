@@ -1,0 +1,59 @@
+html {
+    /*background: url(https://i.pinimg.com/originals/e7/f2/e9/e7f2e9695fffc1af18edcdd1b5ead3fd.jpg) no-repeat center center fixed;*/
+    background: url(https://www.focus-bikes.com/media/home/E-bikes-drives/Impulse/E-bike-drive-systems-Impulse-action.jpg) no-repeat center center fixed;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+}
+
+#login {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: auto;
+}
+
+#login-button {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 30px;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(3, 3, 3, .8);
+    overflow: hidden;
+    opacity: 0.4;
+    box-shadow: 10px 10px 30px #000;
+}
+
+
+.imagenes {
+    list-style:none;
+    margin: 0 auto;
+    padding: 0;
+    display: block;
+    max-width: 780px;
+    text-align: center;
+}
+.imagenes .imagen {
+    display: inline-block;
+    padding: 8px;
+    background:white;
+    margin:10px;
+}
+.imagenes .imagen img {
+    display: block;
+}
+.link {
+    text-decoration: none;
+}
+
+
