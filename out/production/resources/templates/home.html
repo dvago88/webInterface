@@ -10,7 +10,7 @@
     <!--Logos redes-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
-    <link rel="stylesheet" th:href="@{/css/cover.css}"/>
+    <link rel="stylesheet" th:href="@{/css/home.css}"/>
 
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 
@@ -50,19 +50,48 @@
                 </form>
             </div>
         </div>
-
-
     </nav>
 </div>
 
 <div class="container">
     <select class="form-control">
         <option style="display:none">Buscar Ciclo-Parqueadero</option>
-        <option>Default select</option>
-        <option>Default select</option>
-        <option>Default select</option>
+        <option id="ciudadRio" value="1">Ciudad del Rio</option>
+        <option value="2">Otro Lugar</option>
+        <option value="3">Default select</option>
     </select>
 </div>
+
+<div class="container infoCiclas" style="display:none;">
+    <div class="row justify-content-center">
+        <div class="col-md-3 cajaCiclasTotales">
+            <div class="row">
+                <div class="col imagenCiclas">
+                    <img width="120" th:src="@{/images/Imagen1.png}" alt=""/>
+                </div>
+                <div class="col variableInfo">
+                    <h3 id="total">60</h3>
+                    <h4>Total celdas parqueo</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 cajaCiclasLibres">
+            <div class="row">
+                <div class="col imagenCiclas">
+                    <img width="120" th:src="@{/images/Imagen2.png}" alt=""/>
+                </div>
+                <div class="col variableInfo">
+                    <h3 id="libres">60</h3>
+                    <h4>Celdas Libres</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-around">
+        <button type="button" class="btn btn-outline-dark">Ver más</button>
+    </div>
+</div>
+
 
 <footer class="footer fixed-bottom">
     <div class="container-fluid">
@@ -91,5 +120,6 @@
 </footer>
 
 <script th:src="@{/javascript/app.js}"></script>
+<script th:src="@{/javascript/ajax/ajax.js}"></script>
 </body>
 </html>

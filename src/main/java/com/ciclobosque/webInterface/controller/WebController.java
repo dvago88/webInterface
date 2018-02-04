@@ -26,4 +26,9 @@ public class WebController {
 
         return "home";
     }
+
+    @RequestMapping("/user")
+    public String userPage(){
+        return "users/user";
+    }
 }

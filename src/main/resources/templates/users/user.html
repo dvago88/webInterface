@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>(Poner nombre usuario)</title>
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+
+    <link rel="stylesheet" th:href="@{/css/user.css}"/>
+
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<!--TODO: Usar un layout para evitar repetir-->
+<div id="barra">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:  #000000;">
+        <a class="navbar-brand" id="logo" href="#">CicloBosque</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-text login-button">
+                <form class="form-inline" action="#" method="post">
+                    <button type="submit" class="close" aria-label="Close">
+                        <!--TODO: Poner el logo correcto-->
+                        <span aria-hidden="true" class="text-white">&times;</span>
+                    </button>
+                    <span>Salir</span>
+                </form>
+            </div>
+        </div>
+
+
+    </nav>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 left-panel">
+
+        </div>
+        <div class="col-md-5 content1">
+            <div class="row">
+                <h1>Bienvenido (Nombre usuario)</h1>
+            </div>
+
+            <div class="row cuadros">
+                <div class="col"></div>
+                <div class="col"></div>
+            </div>
+            <div class="row cuadros">
+                <div class="col"></div>
+                <div class="col"></div>
+            </div>
+            <div class="row grafica"></div>
+        </div>
+        <div class="col-md-5 content2">
+            <div class="row the-p-word">
+            </div>
+            <div class="row tabla">
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
