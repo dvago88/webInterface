@@ -41,113 +41,141 @@
     </nav>
 </div>
 <div class="container-fluid">
-    <div class="row">
+    <div class="row h-100">
         <div class="col-md-2 left-panel">
-
+            <div class="fondoBlanco h-100">
+                <ul class="opciones">
+                    <li>Mi Perfil</li>
+                    <li>Mapa</li>
+                    <li>Mis Incentivos</li>
+                    <li>Participantes</li>
+                </ul>
+            </div>
         </div>
         <div class="col-md-4 content1">
             <div class="row">
-                <h2>Bienvenido (Nombre usuario)</h2>
-            </div>
-
-            <div class="row cuadros">
-                <div class="col">
-                    <img width="80" th:src="@{/images/placeholderLogo.png}" alt=""/>
-                </div>
-                <div class="col">
-                    <img width="80" th:src="@{/images/placeholderLogo.png}" alt=""/>
-                </div>
+                <h2 class="nombreUsuario">Bienvenido (Nombre usuario)</h2>
             </div>
             <div class="row cuadros">
                 <div class="col">
-                    <img width="80" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                    <div class="fondoBlanco h-100">
+                            <img width="80" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                    </div>
                 </div>
                 <div class="col">
-                    <img width="80" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                    <div class="fondoBlanco h-100">
+                        <img width="80" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                    </div>
+                </div>
+            </div>
+            <div class="row cuadros">
+                <div class="col">
+                    <div class="fondoBlanco h-100">
+                        <img width="80" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="fondoBlanco h-100">
+                        <img width="80" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                    </div>
                 </div>
             </div>
             <div class="row grafica">
-                <div class="chart-container">
-                    <canvas id="myChart" width="auto" height="auto"></canvas>
+                <div class="fondoBlanco">
+                    <div class="chart-container">
+                        <div class="datosUsosMeses" style="display:none;">
+                            <h6 id="mes1">12</h6>
+                            <h6 id="mes2">19</h6>
+                            <h6 id="mes3">3</h6>
+                            <h6 id="mes4">5</h6>
+                            <h6 id="mes5">2</h6>
+                            <h6 id="mes6">3</h6>
+                        </div>
+                        <canvas id="myChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-md-6 content2">
-            <div class="row the-p-word" style="background-color: #bb0000">
+            <div class="p-wordWrapper">
+                <div class="row the-p-word">
+                </div>
             </div>
             <div class="row titulo-historial">
                 <h2>Historial de préstamos del Mes</h2>
             </div>
             <div class="row tabla">
-                <table class="table table-sm table-striped table-responsive">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Cicloparqueadero</th>
-                        <th scope="col">Fecha Llegada</th>
-                        <th scope="col">Hora Llegada</th>
-                        <th scope="col">Estado</th>
-                        <th scope="col">Fecha Salida</th>
-                        <th scope="col">Hora Salida</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Ciudad del rio</td>
-                        <td>28/01/2017</td>
-                        <td>9:00</td>
-                        <td>Activo</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Ciudad del rio</td>
-                        <td>26/01/2017</td>
-                        <td>9:00</td>
-                        <td>Cerrado</td>
-                        <td>26/01/2017</td>
-                        <td>10:00</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Ciudad del rio</td>
-                        <td>26/01/2017</td>
-                        <td>9:00</td>
-                        <td>Cerrado</td>
-                        <td>26/01/2017</td>
-                        <td>10:00</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">23</th>
-                        <td>Ciudad del rio</td>
-                        <td>26/01/2017</td>
-                        <td>9:00</td>
-                        <td>Cerrado</td>
-                        <td>26/01/2017</td>
-                        <td>10:00</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">30</th>
-                        <td>Ciudad del rio</td>
-                        <td>26/01/2017</td>
-                        <td>9:00</td>
-                        <td>Cerrado</td>
-                        <td>26/01/2017</td>
-                        <td>10:00</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">45</th>
-                        <td>Ciudad del rio</td>
-                        <td>26/01/2017</td>
-                        <td>9:00</td>
-                        <td>Cerrado</td>
-                        <td>26/01/2017</td>
-                        <td>10:00</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div class="fondoBlanco">
+                    <table class="table table-sm table-responsive">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Cicloparqueadero</th>
+                            <th scope="col">Fecha Llegada</th>
+                            <th scope="col">Hora Llegada</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Fecha Salida</th>
+                            <th scope="col">Hora Salida</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Ciudad del rio</td>
+                            <td>28/01/2017</td>
+                            <td>9:00</td>
+                            <td>Activo</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Ciudad del rio</td>
+                            <td>26/01/2017</td>
+                            <td>9:00</td>
+                            <td>Cerrado</td>
+                            <td>26/01/2017</td>
+                            <td>10:00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Ciudad del rio</td>
+                            <td>26/01/2017</td>
+                            <td>9:00</td>
+                            <td>Cerrado</td>
+                            <td>26/01/2017</td>
+                            <td>10:00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">23</th>
+                            <td>Ciudad del rio</td>
+                            <td>26/01/2017</td>
+                            <td>9:00</td>
+                            <td>Cerrado</td>
+                            <td>26/01/2017</td>
+                            <td>10:00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">30</th>
+                            <td>Ciudad del rio</td>
+                            <td>26/01/2017</td>
+                            <td>9:00</td>
+                            <td>Cerrado</td>
+                            <td>26/01/2017</td>
+                            <td>10:00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">45</th>
+                            <td>Ciudad del rio</td>
+                            <td>26/01/2017</td>
+                            <td>9:00</td>
+                            <td>Cerrado</td>
+                            <td>26/01/2017</td>
+                            <td>10:00</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

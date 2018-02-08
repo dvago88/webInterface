@@ -29,6 +29,8 @@ public class WebController {
 
     @RequestMapping("/user")
     public String userPage(){
+        //TODO: pasar los nombres de los ultimos 6 meses para la grafica
+//        TODO: pasar el id del usuario
         return "users/user";
     }
 }
