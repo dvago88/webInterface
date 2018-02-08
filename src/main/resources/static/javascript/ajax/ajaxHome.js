@@ -2,8 +2,8 @@
 $("select").change(function () {
     let url;
     if ($(this).val() === '1') {
-        url = "http://localhost:8090/stations";
-        // url = "https://aqueous-temple-46001.herokuapp.com/stations";
+        // url = "http://localhost:8090/stations";
+        url = "https://aqueous-temple-46001.herokuapp.com/stations";
     }
     //Esto es para csrf cuando se implemente la seguridad
     /*   let token = $(elem).parent().children("input").attr("value");
