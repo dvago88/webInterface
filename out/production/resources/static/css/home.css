@@ -41,6 +41,10 @@ select {
     margin: auto 0 auto auto;
 }
 
+.username{
+    display: inline;
+}
+
 .link {
     text-decoration: none;
 }
