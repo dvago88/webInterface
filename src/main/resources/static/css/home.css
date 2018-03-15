@@ -6,7 +6,16 @@ body {
     -o-background-size: cover;
 }
 
-select {
+html,
+body {
+    height: calc(100vh - 7rem); /*estos 7rem son los 7rem de margen del select*/
+}
+
+#mobile-indicator {
+    display: none;
+}
+
+.select {
     margin: 7rem auto auto auto;
     width: 80%;
 }
@@ -15,16 +24,16 @@ select {
     color: #92D050;
 }
 
-.footer ul {
+.realFooter ul {
     list-style: none;
     margin: 0 auto;
     padding: 0;
     text-align: center;
 }
 
-.footer {
+.realFooter {
     /*http://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/*/
-    position: absolute;
+    /*position: absolute;*/
     bottom: 0;
     width: 100%;
     height: 3rem;
@@ -39,6 +48,10 @@ select {
 
 .login-button {
     margin: auto 0 auto auto;
+}
+
+.username, .dropdown {
+    display: inline;
 }
 
 .link {
@@ -68,6 +81,18 @@ select {
     margin-top: 1.5rem;
 }
 
+.loginForm {
+    width: 100%;
+    position: absolute;
+}
+
+#loginButton {
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: black;
+    border-style: none;
+}
+
 /*Redes:*/
 /*https://www.w3schools.com/howto/howto_css_social_media_buttons.asp*/
 .redes {
@@ -94,8 +119,8 @@ select {
 }
 
 /*.fa:hover {
-    opacity: 0.7;
-}*/
+       opacity: 0.7;
+   }*/
 
 .fa-facebook, .fa-twitter, .fa-google, .fa-youtube, .fa-instagram {
     background: #000000;
@@ -127,14 +152,141 @@ select {
     color: white;
 }
 
-/*Media queries*/
-
-@media (max-width: 768px) {
-    .footer {
-        height: 6rem;
-    }
-
-    /*TODO: add media queries for infobici and button*/
+#selector, .cicloparqueaderoSelector {
+    width: 100%;
 }
 
+#selector {
+    background-color: #ffffff;
+    border-style: none;
+    color: black;
+}
+
+.wrapper {
+    min-height: calc(100vh - 10rem); /*3rem del tamaño del footer y 7 rem de margen del select*/
+}
+
+/*Media queries*/
+
+@media (min-width: 991px) {
+    .loginForm {
+        width: 200px;
+        left: -100px;
+    }
+}
+
+@media only screen and (max-device-width: 768px) and (orientation: portrait) {
+
+    #mobile-indicator {
+        display: block;
+    }
+
+    #overlay {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        cursor: pointer;
+    }
+
+    .container {
+        max-width: 100%;
+        width: 95%;
+        height: 150px;
+        font-size: 2.5rem;
+        margin: 8rem auto auto auto;
+    }
+
+    .realFooter {
+        /*height: 6rem;*/
+        /*display: block;*/
+    }
+
+    #logo {
+        font-size: 2.5rem;
+    }
+
+    .navbar-toggler-icon {
+        height: 75px;
+        width: 75px;
+    }
+
+    .navbar-nav li {
+        font-size: 2.5rem;
+    }
+
+    .select {
+        width: 95%;
+    }
+
+    #selector {
+        padding: 5% 0 5% 0;
+        height: 90%;
+        font-size: inherit;
+    }
+
+    .dropdown-menu a {
+        font-size: 2.5rem;
+    }
+
+    .cajas {
+        display: block;
+        width: 100%;
+        margin: auto;
+    }
+
+    .cajaCiclasTotales, .cajaCiclasLibres {
+        border-radius: 24px;
+        background-color: #eeeeee;
+        height: 350px;
+        width: 100%;
+        margin: 50px auto;
+        display: block;
+        max-width: 100%;
+    }
+
+    .cajaCiclasTotales .row .col, .cajaCiclasLibres .row .col {
+        width: 100%;
+        margin: auto;
+    }
+
+    img {
+        width: 300px;
+    }
+
+    .variableInfo h3 {
+        font-size: 3.5rem;
+    }
+
+    .variableInfo h4 {
+        font-size: 3rem;
+    }
+
+    .vermas {
+        font-size: 2.5rem;
+        width: 80%;
+        padding: 30px 0;
+        margin: auto;
+    }
+
+    #loginButton {
+        font-size: 2.5rem;
+    }
+
+    #sendButton, #cancelButton {
+        font-size: 3.5rem;
+    }
+
+    #username, #password, label {
+        font-size: 4rem;
+    }
+
+
+}
 

@@ -6,11 +6,21 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Controller
 public class WebController {
+
+    private final String[] meses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio"
+            , "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
 
     @RequestMapping("/")
     public String home() {
@@ -27,10 +37,20 @@ public class WebController {
         return "home";
     }
 
-    @RequestMapping("/user")
-    public String userPage(){
+    @RequestMapping(value = "/userprofile", method = RequestMethod.POST)
+//    @RequestMapping("/user") Usar este para evitar pasar el username ahí
+    public String userPage(@RequestParam("username") String username, Model model, @RequestParam("jwt") String jwt) {
+        model.addAttribute("username", username);
+        model.addAttribute("jwt", jwt);
+        LocalDateTime localDateTime = LocalDateTime.now();
+        int mesActual = localDateTime.getMonthValue();
         //TODO: pasar los nombres de los ultimos 6 meses para la grafica
 //        TODO: pasar el id del usuario
         return "users/user";
+    }
+
+    @RequestMapping("/login")
+    public String loginPage() {
+        return "login";
     }
 }
