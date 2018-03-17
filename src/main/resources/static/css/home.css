@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 body {
     background: url('https://www.nationalgeographic.com/content/dam/travel/photos/000/861/86178.ngsversion.1471323001675.adapt.1900.1.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    font-family: 'Open Sans', sans-serif;
 }
 
 html,
@@ -22,6 +25,15 @@ body {
 
 #logo {
     color: #92D050;
+    background-color: black;
+    border-style: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    cursor: pointer;
+}
+
+#logo img {
+    height: 2rem;
 }
 
 .realFooter ul {
@@ -50,8 +62,17 @@ body {
     margin: auto 0 auto auto;
 }
 
-.username, .dropdown {
+#userProfileEntryForm, .dropdown {
     display: inline;
+}
+
+.username-button {
+    background-color: black;
+    color: #ffffff;
+    border-style: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    cursor: pointer;
 }
 
 .link {
@@ -70,6 +91,10 @@ body {
     height: 100%;
 }
 
+.img-cicloparqueadero {
+    margin: 5px;
+}
+
 .btn-outline-dark {
     margin-top: 2rem;
     background-color: black;
@@ -84,6 +109,10 @@ body {
 .loginForm {
     width: 100%;
     position: absolute;
+}
+
+#logout-logo {
+    width: 1rem;
 }
 
 #loginButton {
@@ -198,31 +227,13 @@ body {
     .container {
         max-width: 100%;
         width: 95%;
-        height: 150px;
-        font-size: 2.5rem;
-        margin: 8rem auto auto auto;
-    }
-
-    .realFooter {
-        /*height: 6rem;*/
-        /*display: block;*/
-    }
-
-    #logo {
-        font-size: 2.5rem;
-    }
-
-    .navbar-toggler-icon {
-        height: 75px;
-        width: 75px;
-    }
-
-    .navbar-nav li {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
+        margin: auto auto auto auto;
     }
 
     .select {
-        width: 95%;
+        height: 20rem;
+        padding-top: 10rem;
     }
 
     #selector {
@@ -231,8 +242,29 @@ body {
         font-size: inherit;
     }
 
+    #logo {
+        font-size: 3.5rem;
+    }
+
+    #logo img {
+        height: 4rem;
+    }
+
+    .navbar-toggler-icon {
+        height: 6rem;
+        width: 6rem;
+    }
+
+    .navbar-nav li {
+        font-size: 4.5rem;
+    }
+
+    .select {
+        width: 95%;
+    }
+
     .dropdown-menu a {
-        font-size: 2.5rem;
+        font-size: 4.5rem;
     }
 
     .cajas {
@@ -276,7 +308,7 @@ body {
     }
 
     #loginButton {
-        font-size: 2.5rem;
+        font-size: 4.5rem;
     }
 
     #sendButton, #cancelButton {
@@ -287,6 +319,31 @@ body {
         font-size: 4rem;
     }
 
+    .realFooter {
+        height: auto;
+        font-size: 3.5rem;
+    }
+
+    .toe, .container-fluid .row {
+        display: block;
+    }
+
+    .fa-facebook, .fa-twitter, .fa-google, .fa-youtube, .fa-instagram {
+        font-size: 5rem;
+    }
+
+    .redes{
+        width: 100%;
+    }
+
+    .redes ul {
+        width: 90%;
+        margin: auto;
+    }
+
+    .redes ul li {
+        margin: auto 15px auto 15px;
+    }
 
 }
 

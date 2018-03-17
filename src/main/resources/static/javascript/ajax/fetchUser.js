@@ -2,23 +2,22 @@
 //GET USER INFO AND HISTORIC DATA
 /*----------------------------------------------------*/
 $(document).ready(function () {
-    let $username = $("#username").text();
+    let $username = $("#username").val();
     let url = "http://localhost:8090/user/" + $username;
     // let url = "https://aqueous-temple-46001.herokuapp.com/user/" + $username;
-    let jwt = $("#jwt").text();
+    let jwt = $("#jwt").val();
     const test = "Bearer " + jwt;
     console.log("test");
-    console.log(test);
     console.log(jwt);
+    console.log($username);
     console.log("finish test");
     let data = {
         method: 'GET',
         headers: {
             "Authentication": test,
-            // 'Access-Control-Allow-Origin':'*'
+            "Authorization": $username
         },
         mode: 'cors',
-
     };
     fectchData(url, data)
         .then(data => showPage(data))
@@ -34,11 +33,10 @@ function capitalizeFristLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function fectchData(url, headers) {
-    return fetch(url, headers)
+function fectchData(url, data) {
+    return fetch(url, data)
         .then(checkStatus)
         .then(response => response.json());
-    // .then(response => console.log(response));
 }
 
 function checkStatus(response) {
@@ -55,7 +53,7 @@ function showPage(data) {
     console.dir(data);
     $("#wrapper").css("display", "block");
     $(".nombreUsuario").text(`Bienvenido ${capitalizeFristLetter(data[0].user.primerNombre)}`); //muestra el nombre
-
+    $("#primerNombre").val(data[0].user.primerNombre);
     //  TODO: procesar los datos del usuario
 
     return data;

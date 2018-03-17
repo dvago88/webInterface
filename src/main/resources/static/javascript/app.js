@@ -1,3 +1,19 @@
+//Muestra acceder o el usuario dependiendo si se esta autenticado o no
+$(document).ready(function () {
+    const nombre = $("#primerNombre").val();
+    const redirectUrl = "userprofile";
+    const $userEntryForm = $("#userProfileEntryForm");
+    if ($("#jwt").val() !== " ") {
+        $userEntryForm.append(`
+                    <button class="username-button" type="submit">${capitalizeFristLetter(nombre)}</button>
+                `);
+        $(".login-button").append(`<a href="/login"><img id="logout-logo" src="../../images/logout.svg" alt="logout-logo"/></a>`);
+        $(".dropdown-login").hide();
+        $userEntryForm.attr("action", redirectUrl);
+        $("#loginForm").hide();
+    }
+});
+
 //Resalta el "tab" seleccionado
 $(".nav-item").click(function () {
     $(".nav-item").removeClass("active");

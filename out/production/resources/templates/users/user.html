@@ -19,13 +19,19 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<div id="jwt" th:text="${jwt}" style="display: none;"></div>
+<!--<div id="jwt" th:text="${jwt}" style="display: none;"></div>-->
 <!--TODO: Usar un layout para evitar repetir-->
 <div id="wrapper" style="display:none;">
     <div id="barra">
-        <div id="username" th:text="${username}" style="display: none;"></div>
+        <!--<div id="username" th:text="${username}" style="display: none;"></div>-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:  #000000;">
-            <a class="navbar-brand" id="logo" th:href="@{|/|}">CicloBosque</a>
+            <form th:action="@{|/|}" method="post">
+                <input id="username" name="username" th:value="${username}" type="hidden"/>
+                <input id="jwt" name="jwt" th:value="${jwt}" type="hidden"/>
+                <input id="primerNombre" name="primerNombre" type="hidden"/>
+                <button class="navbar-brand" id="logo" type="submit">CicloBosque</button>
+            </form>
+            <!--<a class="navbar-brand" id="logo" th:href="@{|/|}">CicloBosque</a>-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

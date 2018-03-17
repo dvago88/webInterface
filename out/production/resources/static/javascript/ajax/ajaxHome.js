@@ -1,14 +1,16 @@
+//TODO: general: encriptar siempre que se mande usuario y password a la api
+
 let baseUrl = "http://localhost:8090/";
 let currentUser = null;
-let jwt = "";
 
 function capitalizeFristLetter(string) {
     console.log(string);
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-
-//Llama a la API para pedir las estaciones segun el centro elegido
+/*----------------------------------------------------*/
+//CALL API TO GET STATIONS INFO
+/*----------------------------------------------------*/
 $("#ciudadRio").click(function () {
     event.preventDefault();
     let url = baseUrl + "stations";
@@ -30,13 +32,15 @@ $("#ciudadRio").click(function () {
 
 });
 
-//Login
+/*----------------------------------------------------*/
+//PERFORM LOGIN
+/*----------------------------------------------------*/
 $('#loginForm').submit(function (event) {
     let url;
     url = baseUrl + "perform_login";
-    // url = baseUrl + "login";
+    // url = baseUrl + 'login';
     event.preventDefault();
-    let username = $('#username').val();
+    let username = $('#usernameInput').val();
     let data = 'username=' + username + '&password=' + $('#password').val();
 
     $.ajax(url, {
@@ -45,18 +49,18 @@ $('#loginForm').submit(function (event) {
         type: 'POST',
         crossDomain: true,
         success: function (data, textStatus, jqXRH) {
-            //todo: mirar como optener la url de redireccionamiento o como hacer este paso más limpio
-            // let redirectUrl = "userprofile/" + username;
             let redirectUrl = "userprofile";
-            jwt = data.jws;
-            // $(".login-button").prepend(`<div class="username"><a href="${redirectUrl}">${capitalizeFristLetter(data.userName)}</a></div>`);
-            $(".login-button").prepend(`
-                <form action="${redirectUrl}" method="post" >
-                    <input name="jwt" type="hidden" value="${jwt}"/>
-                    <input name="username" type="hidden" value="${username}"/>
-                    <button class="username" type="submit">${capitalizeFristLetter(data.userName)}</button>
-                </form>
+            let jwt = data.jws;
+            const $userEntryForm = $("#userProfileEntryForm");
+
+            $userEntryForm.append(`
+                    <button class="username-button" type="submit">${capitalizeFristLetter(data.userName)}</button>
                 `);
+            $(".login-button").append(`<a href="/login"><img id="logout-logo" src="../../images/logout.svg" alt="logout-logo"/></a>`);
+            $(".dropdown-login").hide();
+            $userEntryForm.attr("action", redirectUrl);
+            $("#jwt").val(jwt);
+            $("#username").val(username);
             // console.log("clear success");
             // console.log(data);
             // console.log(textStatus);
@@ -87,21 +91,6 @@ $(document).on('click', '.username', function () {
     /*   fetch(url)
            .then(response => response.json())
            .then(data => console.log(data));*/
-
-
-    //https://stackoverflow.com/questions/15620701/keep-authentication-enable-in-rest-services
-    //After every successful authentication your server can return a unique 27[any length you want] digit string.
-    // This token may or may not have a expiry policy[depends on what you want]. So for subsequent
-    // authentications [when the client application has an auth token]you can actually provide a new auth token
-    // and invalidate the previous one.
-
-    //https://stormpath.com/blog/token-auth-for-java
-
-    //https://stackoverflow.com/questions/44719639/spring-security-restful-web-services-and-maintaining-user-sessions
-    //If you'd like to design a REST API, I would send session id in headers as you've explained with each AJAX call.
-    // One API method should authenticate user and provide a token (or session id), which should be stored by the client
-    // somewhere (e.g. in cookies). All other methods should require it to be able to access a resource. When the user
-    // is logged out, this value should be erased and user shouldn't be able to access a resource.
 
     /*$.getJSON(url, function (data) {
         console.log(data);

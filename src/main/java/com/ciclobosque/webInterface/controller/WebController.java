@@ -23,7 +23,14 @@ public class WebController {
             , "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
 
     @RequestMapping("/")
-    public String home() {
+    public String home(Model model) {
+        String username = " ";
+        String jwt = " ";
+        String primerNombre = " ";
+        model.addAttribute("username", username);
+        model.addAttribute("jwt", jwt);
+        model.addAttribute("primerNombre", primerNombre);
+
 //        String uri = "https://aqueous-temple-46001.herokuapp.com";
 //        RestTemplate template = new RestTemplate();
 //        String result = template.getForObject(uri, String.class);
@@ -37,8 +44,17 @@ public class WebController {
         return "home";
     }
 
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public String homeLogged(@RequestParam("username") String username, Model model,
+                             @RequestParam("jwt") String jwt,
+                             @RequestParam("primerNombre") String primerNombre) {
+        model.addAttribute("username", username);
+        model.addAttribute("jwt", jwt);
+        model.addAttribute("primerNombre", primerNombre);
+        return "home";
+    }
+
     @RequestMapping(value = "/userprofile", method = RequestMethod.POST)
-//    @RequestMapping("/user") Usar este para evitar pasar el username ahí
     public String userPage(@RequestParam("username") String username, Model model, @RequestParam("jwt") String jwt) {
         model.addAttribute("username", username);
         model.addAttribute("jwt", jwt);
