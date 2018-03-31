@@ -1,29 +1,10 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>(Poner nombre usuario)</title>
-    <!--bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
-    <!--CSS propio-->
-    <link rel="stylesheet" th:href="@{/css/user.css}"/>
-    <!--CDN jquery-->
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
+<head th:replace="layout::head('Perfil','/css/user.css')">
 </head>
 <body>
-<!--<div id="jwt" th:text="${jwt}" style="display: none;"></div>-->
-<!--TODO: Usar un layout para evitar repetir-->
 <div id="wrapper" style="display:none;">
     <div id="barra">
-        <!--<div id="username" th:text="${username}" style="display: none;"></div>-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:  #000000;">
             <form th:action="@{|/|}" method="post">
                 <input id="username" name="username" th:value="${username}" type="hidden"/>
@@ -31,7 +12,6 @@
                 <input id="primerNombre" name="primerNombre" type="hidden"/>
                 <button class="navbar-brand" id="logo" type="submit">CicloBosque</button>
             </form>
-            <!--<a class="navbar-brand" id="logo" th:href="@{|/|}">CicloBosque</a>-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -93,12 +73,18 @@
                     <div class="fondoBlanco">
                         <div class="chart-container">
                             <div class="datosUsosMeses" style="display:none;">
-                                <h6 id="mes1">12</h6>
-                                <h6 id="mes2">19</h6>
-                                <h6 id="mes3">3</h6>
-                                <h6 id="mes4">5</h6>
-                                <h6 id="mes5">2</h6>
-                                <h6 id="mes6">3</h6>
+                                <h6 id="cantidadMes1" th:text="${cantidadMes1}">12</h6>
+                                <h6 id="cantidadMes2" th:text="${cantidadMes2}">19</h6>
+                                <h6 id="cantidadMes3" th:text="${cantidadMes3}">3</h6>
+                                <h6 id="cantidadMes4" th:text="${cantidadMes4}">5</h6>
+                                <h6 id="cantidadMes5" th:text="${cantidadMes5}">2</h6>
+                                <h6 id="cantidadMes6" th:text="${cantidadMes6}">2</h6>
+                                <h6 id="nombreMes1" th:text="${nombreMes1}">Enero</h6>
+                                <h6 id="nombreMes2" th:text="${nombreMes2}">Febrero</h6>
+                                <h6 id="nombreMes3" th:text="${nombreMes3}">Marzo</h6>
+                                <h6 id="nombreMes4" th:text="${nombreMes4}">Abril</h6>
+                                <h6 id="nombreMes5" th:text="${nombreMes5}">Mayo</h6>
+                                <h6 id="nombreMes6" th:text="${nombreMes6}">Junio</h6>
                             </div>
                             <canvas id="myChart"></canvas>
                         </div>
@@ -137,7 +123,7 @@
                                 <td>-</td>
                                 <td>-</td>
                             </tr>
-                            <tr>
+                           <!-- <tr>
                                 <th scope="row">2</th>
                                 <td>Ciudad del rio</td>
                                 <td>26/01/2017</td>
@@ -181,7 +167,7 @@
                                 <td>Cerrado</td>
                                 <td>26/01/2017</td>
                                 <td>10:00</td>
-                            </tr>
+                            </tr>-->
                             </tbody>
                         </table>
                     </div>

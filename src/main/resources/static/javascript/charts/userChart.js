@@ -1,10 +1,17 @@
 // http://www.chartjs.org/docs/latest/
-let $mes1 = $("#mes1");
-let $mes2 = $("#mes2");
-let $mes3 = $("#mes3");
-let $mes4 = $("#mes4");
-let $mes5 = $("#mes5");
-let $mes6 = $("#mes6");
+let $cantidadMes1 = $("#cantidadMes1");
+let $cantidadMes2 = $("#cantidadMes2");
+let $cantidadMes3 = $("#cantidadMes3");
+let $cantidadMes4 = $("#cantidadMes4");
+let $cantidadMes5 = $("#cantidadMes5");
+let $cantidadMes6 = $("#cantidadMes6");
+
+const $nombreMes1 = $("#nombreMes1");
+const $nombreMes2 = $("#nombreMes2");
+const $nombreMes3 = $("#nombreMes3");
+const $nombreMes4 = $("#nombreMes4");
+const $nombreMes5 = $("#nombreMes5");
+const $nombreMes6 = $("#nombreMes6");
 let ctx = document.getElementById("myChart").getContext('2d');
 /*let data = {
     labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio"],
@@ -42,12 +49,11 @@ let borderBarColor = 'rgba(146, 208, 80, 1)';
         borderWidth: 1
     }]
 };*/
-//TODO: hacer dimamico el cambio de nombre del mes
 let data = {
-    labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio"],
+    labels: [$nombreMes1.text(), $nombreMes2.text(), $nombreMes3.text(), $nombreMes4.text(), $nombreMes5.text(), $nombreMes6.text()],
     datasets: [{
         label: 'Ciclo Parqueos Mensuales',
-        data: [$mes1.text(), $mes2.text(), $mes3.text(), $mes4.text(), $mes5.text(), $mes6.text()],
+        data: [$cantidadMes1.text(), $cantidadMes2.text(), $cantidadMes3.text(), $cantidadMes4.text(), $cantidadMes5.text(), $cantidadMes6.text()],
         backgroundColor: [
             barColor,
             barColor,

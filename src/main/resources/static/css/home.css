@@ -14,6 +14,10 @@ body {
     height: calc(100vh - 7rem); /*estos 7rem son los 7rem de margen del select*/
 }
 
+.wrapper {
+    min-height: calc(100vh - 10rem); /*3rem del tamaño del footer y 7 rem de margen del select*/
+}
+
 #mobile-indicator {
     display: none;
 }
@@ -191,9 +195,7 @@ body {
     color: black;
 }
 
-.wrapper {
-    min-height: calc(100vh - 10rem); /*3rem del tamaño del footer y 7 rem de margen del select*/
-}
+
 
 /*Media queries*/
 
@@ -209,6 +211,11 @@ body {
     #mobile-indicator {
         display: block;
     }
+
+    .wrapper {
+        min-height: calc(100vh - 440px); /*3rem del tamaño del footer y 7 rem de margen del select*/
+    }
+
 
     #overlay {
         position: fixed;
@@ -263,8 +270,12 @@ body {
         width: 95%;
     }
 
-    .dropdown-menu a {
+    .dropdown-menu a, .username-button {
         font-size: 4.5rem;
+    }
+
+    #logout-logo {
+        width: 4.5rem;
     }
 
     .cajas {
@@ -301,10 +312,10 @@ body {
     }
 
     .vermas {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
         width: 80%;
         padding: 30px 0;
-        margin: auto;
+        margin: 50px auto;
     }
 
     #loginButton {
@@ -315,7 +326,7 @@ body {
         font-size: 3.5rem;
     }
 
-    #username, #password, label {
+    #username, #password, label, #usernameInput {
         font-size: 4rem;
     }
 
@@ -332,8 +343,12 @@ body {
         font-size: 5rem;
     }
 
-    .redes{
+    .toe {
         width: 100%;
+        max-width: 100%;
+        /*margin-top: 20px;*/
+        /*margin-bottom: 20px;*/
+        margin: 6px auto 0 auto;
     }
 
     .redes ul {
@@ -342,7 +357,14 @@ body {
     }
 
     .redes ul li {
-        margin: auto 15px auto 15px;
+        margin: auto 40px auto 40px;
+    }
+
+    .fixed-bottom {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        left: auto;
     }
 
 }

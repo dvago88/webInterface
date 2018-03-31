@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<head th:fragment="head(page_title, ref)">
+    <meta charset="UTF-8"/>
+    <title th:text="'Ciclobosque | ' + ${page_title}">CicloBosque</title>
     <!--Favicon-->
     <link rel="apple-touch-icon" sizes="180x180" th:href="@{images/favicon/apple-touch-icon.png}"/>
     <link rel="icon" type="image/png" sizes="32x32" th:href="@{images/favicon/favicon-32x32.png}"/>
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
     <!--CSS propio-->
-    <link rel="stylesheet" th:href="@{/css/home.css}"/>
+    <link rel="stylesheet" th:href="@{${ref}}"/>
 
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 
@@ -31,6 +31,9 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
 </head>
+<div >
+
+</div>
 <body>
 
 </body>

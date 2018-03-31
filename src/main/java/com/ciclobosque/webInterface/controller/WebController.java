@@ -58,8 +58,20 @@ public class WebController {
     public String userPage(@RequestParam("username") String username, Model model, @RequestParam("jwt") String jwt) {
         model.addAttribute("username", username);
         model.addAttribute("jwt", jwt);
+
         LocalDateTime localDateTime = LocalDateTime.now();
-        int mesActual = localDateTime.getMonthValue();
+        int mesInicial = localDateTime.getMonthValue() - 6;
+        if (mesInicial < 0) {
+            mesInicial = 12 + mesInicial;
+        }
+
+        for (int i = 0; i < 6; i++) {
+            model.addAttribute("nombreMes" + (i + 1), meses[i + mesInicial]);
+            if (mesInicial + i == 11) {
+                mesInicial = -i - 1;
+            }
+        }
+
         //TODO: pasar los nombres de los ultimos 6 meses para la grafica
 //        TODO: pasar el id del usuario
         return "users/user";
