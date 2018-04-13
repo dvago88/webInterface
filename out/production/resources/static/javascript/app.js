@@ -48,15 +48,18 @@ $("#loginButton").click(function () {
 //Aplica el overlay
 function on() {
     document.getElementById("overlay").style.display = "block";
+    closeNav();
 }
 
 //Desactiva el overlay y activa de nuevo el dropdown del loging
 function off() {
     $loginForm = $("#loginForm");
     document.getElementById("overlay").style.display = "none";
-    document.getElementById("loginButton").disabled = false;
+    // document.getElementById("loginButton").disabled = false;
     $loginForm.removeClass("show");
-    $loginForm.removeClass("p-6");
+    $(".dropdown-login").removeClass("show");
+    $("#accederButton").attr("aria-expanded", "false");
+    /*$loginForm.removeClass("p-6");
     $loginForm.addClass("p-3");
     $loginForm.css({
         "position": "absolute",
@@ -64,5 +67,27 @@ function off() {
         "left": "-100px",
         "margin": "auto",
         "top": "0"
-    });
+    });*/
+}
+
+function closeNav() {
+    document.getElementById("navbarNav").style.width = "0";
+    $(".closebtn").hide();
+    $(".logo").hide();
+}
+
+function openNav() {
+    $(".closebtn").show();
+    $(".logo").show();
+    const navBar = document.getElementById("navbarNav");
+
+    if ($("#mobile-indicator").is(':visible')) {
+        navBar.style.width = "100%";
+    } else {
+        navBar.style.width = "50%";
+    }
+}
+
+function botonCancelar() {
+
 }

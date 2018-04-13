@@ -50,13 +50,135 @@ function checkStatus(response) {
 
 function showPage(data) {
     //todo revisar si es mujer para poner bienvenida
+    const sexo = data[0].user.sexo;
+    let letraFinal;
+    if (sexo === null) {
+        letraFinal = "@";
+    } else if (sexo === "M") {
+        letraFinal = "o";
+    } else {
+        letraFinal = "a";
+    }
     console.dir(data);
     $("#wrapper").css("display", "block");
-    $(".nombreUsuario").text(`Bienvenido ${capitalizeFristLetter(data[0].user.primerNombre)}`); //muestra el nombre
+    $(".nombreUsuario").text(`Bienvenid${letraFinal} ${capitalizeFristLetter(data[0].user.primerNombre)}`); //muestra el nombre
     $("#primerNombre").val(data[0].user.primerNombre);
-    //  TODO: procesar los datos del usuario
+
+    populateTable(data);
+    populateChart(data);
 
     return data;
+}
+
+function populateTable(data) {
+    let $tableBody = $("tbody");
+    let counter = 0;
+
+    for (let index = 0; index < 6; index++) {
+        const currentValue = data[index];
+        let date = new Date(currentValue.fechaIngreso);
+        let dia = date.getDate();
+        let mes = date.getMonth() + 1;
+        let ano = date.getFullYear();
+        let hora = date.getHours();
+        let minuto = date.getMinutes();
+        const fechaIngreso = `${dia}/${mes}/${ano}`;
+        const horaIngreso = `${hora}:${minuto}`;
+        let activo;
+        let fechaSalida;
+        let horaSalida;
+        if (currentValue.fechaSalida === null) {
+            activo = "Activo";
+            fechaSalida = "-";
+            horaSalida = "-";
+        } else {
+            activo = "Cerrado";
+            date = new Date(currentValue.fechaSalida);
+            dia = date.getDate();
+            mes = date.getMonth() + 1;
+            ano = date.getFullYear();
+            hora = date.getHours();
+            minuto = date.getMinutes();
+            fechaSalida = `${dia}/${mes}/${ano}`;
+            horaSalida = `${hora}:${minuto}`;
+        }
+        $tableBody.append(`
+            <tr>
+                <th scope="row">${index + 1}</th>
+                <td>Ciudad del rio</td>
+                <td>${fechaIngreso}</td>
+                <td>${horaIngreso}</td>
+                <td>${activo}</td>
+                <td>${fechaSalida}</td>
+                <td>${horaSalida}</td>
+            </tr>
+        `);
+    }
+    data.forEach(function (currentValue, index) {
+        counter++;
+        if (counter === 6) {
+            return;
+        }
+       /* let date = new Date(currentValue.fechaIngreso);
+        let dia = date.getDate();
+        let mes = date.getMonth() + 1;
+        let ano = date.getFullYear();
+        let hora = date.getHours();
+        let minuto = date.getMinutes();
+        const fechaIngreso = `${dia}/${mes}/${ano}`;
+        const horaIngreso = `${hora}:${minuto}`;
+        let activo;
+        let fechaSalida;
+        let horaSalida;
+        if (currentValue.fechaSalida === null) {
+            activo = "Activo";
+            fechaSalida = "-";
+            horaSalida = "-";
+        } else {
+            activo = "Cerrado";
+            date = new Date(currentValue.fechaSalida);
+            dia = date.getDate();
+            mes = date.getMonth() + 1;
+            ano = date.getFullYear();
+            hora = date.getHours();
+            minuto = date.getMinutes();
+            fechaSalida = `${dia}/${mes}/${ano}`;
+            horaSalida = `${hora}:${minuto}`;
+        }
+        $tableBody.append(`
+            <tr>
+                <th scope="row">${index + 1}</th>
+                <td>Ciudad del rio</td>
+                <td>${fechaIngreso}</td>
+                <td>${horaIngreso}</td>
+                <td>${activo}</td>
+                <td>${fechaSalida}</td>
+                <td>${horaSalida}</td>
+            </tr>
+        `);*/
+    });
+}
+
+function populateChart(data) {
+    let $cantidadMes1 = $("#cantidadMes1");
+    let $cantidadMes2 = $("#cantidadMes2");
+    let $cantidadMes3 = $("#cantidadMes3");
+    let $cantidadMes4 = $("#cantidadMes4");
+    let $cantidadMes5 = $("#cantidadMes5");
+    let $cantidadMes6 = $("#cantidadMes6");
+
+    $cantidadMes1.text(10);
+    $cantidadMes2.text(10);
+    $cantidadMes3.text(10);
+    $cantidadMes4.text(10);
+    $cantidadMes5.text(10);
+    $cantidadMes6.text(10);
+
+    let myChart = new Chart(ctx, {
+        type: 'bar',
+        data: dataForTheChart,
+        options: options
+    });
 }
 
 

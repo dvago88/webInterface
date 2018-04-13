@@ -30,17 +30,6 @@ public class WebController {
         model.addAttribute("username", username);
         model.addAttribute("jwt", jwt);
         model.addAttribute("primerNombre", primerNombre);
-
-//        String uri = "https://aqueous-temple-46001.herokuapp.com";
-//        RestTemplate template = new RestTemplate();
-//        String result = template.getForObject(uri, String.class);
-//        JSONObject response = new JSONObject(result);
-//        JSONArray content = response.getJSONArray("content");
-
-//        JSONPObject object = new JSONPObject(result, DataEntity.class);
-//        ResponseEntity<DataEntity> dataEntity = template.getForEntity(uri, DataEntity.class);
-//        System.out.println(result);
-
         return "home";
     }
 
@@ -72,7 +61,6 @@ public class WebController {
             }
         }
 
-        //TODO: pasar los nombres de los ultimos 6 meses para la grafica
 //        TODO: pasar el id del usuario
         return "users/user";
     }

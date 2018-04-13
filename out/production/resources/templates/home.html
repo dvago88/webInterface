@@ -11,12 +11,14 @@
             <a class="navbar-brand" id="logo" href="#">
                 <img th:src="@{images/logo.svg}" alt="logo"/>
                 CicloBosque</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button type="button" id="toggler-button">
+                <span style="cursor:pointer" onclick="openNav()">&#9776;</span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="sidenav navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+                    <li><a style="display: none" href="javascript:void(0)" class="closebtn"
+                           onclick="closeNav()">&times;</a></li>
+                    <li class="logo" style="display: none"><img th:src="@{images/logo.svg}" alt="logo"/></li>
                     <li class="nav-item active"><a class="nav-link" href="#">Inicio<span
                             class="sr-only">(current)</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Productos</a></li>
@@ -31,7 +33,7 @@
                         <input id="primerNombre" name="primerNombre" type="hidden" th:value="${primerNombre}"/>
                     </form>
                     <div class="dropdown dropdown-login">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="loginButton"
+                        <button onclick="on()" class="btn btn-secondary dropdown-toggle" type="button" id="accederButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Acceder
                         </button>
@@ -51,9 +53,12 @@
                                     Remember me
                                 </label>
                             </div>
-                            <button id="sendButton" type="submit" class="btn btn-primary">Entrar</button>
-                            <button id="cancelButton" type="button" onclick="off()" class="btn btn-primary">Cancelar
-                            </button>
+                            <div class="botones">
+                                <button id="sendButton" type="submit" class="btn btn-primary">Entrar</button>
+                                <button id="cancelButton" type="button" onclick="off()" class="btn btn-primary">
+                                    Cancelar
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -62,7 +67,7 @@
     </div>
 
     <div class="container select">
-        <div class="dropdown">
+        <div class="dropdown dropdown-parqueaderos">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="selector" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                 Buscar Ciclo-Parqueadero
@@ -76,11 +81,12 @@
     </div>
 
     <div class="container infoCiclas" style="display:none;">
+    <!--<div class="container infoCiclas">-->
         <div class="row justify-content-center cajas">
             <div class="col-md-3 cajaCiclasTotales">
                 <div class="row">
                     <div class="col imagenCiclas">
-                        <img class="img-cicloparqueadero" width="90%" th:src="@{/images/cicloparqueadero.svg}"
+                        <img class="img-cicloparqueadero" th:src="@{/images/cicloparqueadero.svg}"
                              alt="silueta cicloparqueadero"/>
                     </div>
                     <div class="col variableInfo">
@@ -92,7 +98,7 @@
             <div class="col-md-3 cajaCiclasLibres">
                 <div class="row">
                     <div class="col imagenCiclas">
-                        <img class="img-cicloparqueadero" width="90%" th:src="@{/images/cicloparqueadero2.svg}"
+                        <img class="img-cicloparqueadero" th:src="@{/images/cicloparqueadero2.svg}"
                              alt="silueta cicloparqueadero"/>
                     </div>
                     <div class="col variableInfo">

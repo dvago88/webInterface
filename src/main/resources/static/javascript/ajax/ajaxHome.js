@@ -62,11 +62,12 @@ $('#loginForm').submit(function (event) {
             $("#jwt").val(jwt);
             $("#username").val(username);
             // console.log("clear success");
-            // console.log(data);
+            // console.log(dataForTheChart);
             // console.log(textStatus);
             console.log(jwt);
             currentUser = username;
             $("#loginForm").hide();
+            document.getElementById("overlay").style.display = "none";
         }
 
     }).done(function (data, textStatus, jqXHR) {
@@ -90,10 +91,10 @@ $(document).on('click', '.username', function () {
 
     /*   fetch(url)
            .then(response => response.json())
-           .then(data => console.log(data));*/
+           .then(dataForTheChart => console.log(dataForTheChart));*/
 
-    /*$.getJSON(url, function (data) {
-        console.log(data);
+    /*$.getJSON(url, function (dataForTheChart) {
+        console.log(dataForTheChart);
     }).fail(function (jqXHR) {
         console.log(jqXHR);
     });*/

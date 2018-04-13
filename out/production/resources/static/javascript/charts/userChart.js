@@ -13,11 +13,11 @@ const $nombreMes4 = $("#nombreMes4");
 const $nombreMes5 = $("#nombreMes5");
 const $nombreMes6 = $("#nombreMes6");
 let ctx = document.getElementById("myChart").getContext('2d');
-/*let data = {
+/*let dataForTheChart = {
     labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio"],
     datasets: [{
         label: 'Ciclo Parqueos Mensuales',
-        data: [12, 19, 3, 5, 2, 3],
+        dataForTheChart: [12, 19, 3, 5, 2, 3],
         backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -39,17 +39,17 @@ let ctx = document.getElementById("myChart").getContext('2d');
 };*/
 let barColor = 'rgba(146, 208, 80, 0.2)';
 let borderBarColor = 'rgba(146, 208, 80, 1)';
-/*let data = {
+/*let dataForTheChart = {
     labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio"],
     datasets: [{
         label: 'Ciclo Parqueos Mensuales',
-        data: [12, 19, 3, 5, 2, 3],
+        dataForTheChart: [12, 19, 3, 5, 2, 3],
         backgroundColor: barColor,
         borderColor: borderBarColor,
         borderWidth: 1
     }]
 };*/
-let data = {
+let dataForTheChart = {
     labels: [$nombreMes1.text(), $nombreMes2.text(), $nombreMes3.text(), $nombreMes4.text(), $nombreMes5.text(), $nombreMes6.text()],
     datasets: [{
         label: 'Ciclo Parqueos Mensuales',
@@ -89,8 +89,10 @@ let options = {
         }]
     }
 };
-let myChart = new Chart(ctx, {
+
+
+/*let myChart = new Chart(ctx, {
     type: 'bar',
-    data: data,
+    data: dataForTheChart,
     options: options
-});
+});*/

@@ -4,7 +4,7 @@ $(document).ready(function () {
     $.ajax({
         type: "GET", //GET, POST, PUT
         url: url,  //the url to call
-        // data: yourData,
+        // dataForTheChart: yourData,
         // contentType: contentType,
         crossDomain: true,
         beforeSend: function (xhr) {   //Include the bearer token in header
