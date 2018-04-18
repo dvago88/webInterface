@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+#mobile-indicator {
+    display: block;
+}
+
+html {
+    font-size: 450%;
+}
+
+@media only screen and (min-device-width: 768px) {
+    #mobile-indicator {
+        display: none;
+    }
+
+    html {
+        font-size: 150%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    html {
+        font-size: 100%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+}
+

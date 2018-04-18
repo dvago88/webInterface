@@ -1,0 +1,207 @@
+#toggler-button {
+    display: block;
+    border: none;
+    background: #000;
+    color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#navbarNav {
+    width: 0;
+}
+
+.nav-link, .closebtn, #toggler-button, .navbar-brand {
+    color: #bbb;
+    font-size: 1rem; /*4.5rem*/
+    background-color: #000;
+}
+
+.navbar-brand img {
+    height: 1rem; /*4.5rem*/
+}
+
+#logo {
+    color: #92D050;
+    border-style: none;
+    cursor: pointer;
+}
+
+.nav-link {
+    margin: 25px auto;
+    text-align: center;
+}
+
+.navbar {
+    height: 150px;
+}
+
+.closebtn {
+    font-size: 1.33rem; /*6rem*/
+}
+
+.navbar-text {
+    width: 100%;
+}
+
+#accederButton {
+    background: #000;
+    font-size: 1rem; /*4.5rem*/
+    border-style: none;
+    width: 100%;
+    margin: 25px auto;
+}
+
+/*---------------------------------------------------------*/
+/*                  SIDEBAR WHEN MOBILE                    */
+/*---------------------------------------------------------*/
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    background-color: #000;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    background-color: #000;
+}
+
+.sidenav a:hover {
+    color: #777;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    margin-left: 50px;
+}
+
+.sidenav img {
+    height: 2.5rem;
+    margin: auto;
+}
+
+.logo {
+    margin: auto;
+    margin-top: 0.5rem;
+}
+
+/*-----------------------------------------*/
+/*WHEN LOGGED                              */
+/*-----------------------------------------*/
+
+#logout-logo {
+    width: 100%;
+    height: 1rem;
+}
+
+a[href^='/login'] {
+    padding: 8px;
+}
+
+.username-button {
+    background-color: #000;
+    color: #fff;
+    font-size: 1rem;
+    border-style: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+#userProfileEntryForm {
+    margin: auto;
+}
+
+.login-button {
+    display: inherit;
+}
+
+@media only screen and (min-device-width: 768px) {
+
+    .navbar {
+        height: auto;
+    }
+
+    .navbar-brand img {
+        height: 1.33rem; /*2rem*/
+    }
+
+    .closebtn, #toggler-button {
+        font-size: 1.67rem; /*2.5rem*/
+    }
+
+    .navbar-brand img {
+        height: 1.5rem; /*4.5rem*/
+    }
+
+    .nav-link {
+        margin: 15px auto;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+
+    #navbarNav {
+        width: 100%;
+        height: auto;
+    }
+
+    .nav-link {
+        margin: 0;
+    }
+
+    #toggler-button {
+        display: none;
+    }
+
+    .navbar-brand {
+        padding: 0;
+    }
+
+    .navbar-text {
+        padding: 0;
+        margin: 0 0 0 auto;
+        width: auto;
+    }
+
+    .navbar-brand img {
+        height: 2rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+
+    #accederButton {
+        margin: 0;
+    }
+
+    .sidenav {
+        position: relative;
+        padding: auto;
+        padding-top: 0;
+    }
+
+    #logout-logo {
+        width: 1rem;
+    }
+
+}
+
+@media only screen and (min-width: 1200px) {
+}
+
+

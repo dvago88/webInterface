@@ -1,12 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
-#mobile-indicator {
-    display: block;
-}
-
-html {
-    font-size: 450%;
-}
 
 html,
 body {
@@ -14,7 +5,11 @@ body {
 }
 
 body {
-    background: #3B5998;
+    background: url('https://www.nationalgeographic.com/content/dam/travel/photos/000/861/86178.ngsversion.1471323001675.adapt.1900.1.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
     font-size: 0.77rem; /*3.5rem*/
     font-family: 'Open Sans', sans-serif;
 }
@@ -22,109 +17,6 @@ body {
 .wrapper {
     min-height: calc(100vh - 661px); /*486px del tamaño del footer y 2.44 rem (175px) de margen del select*/
     font-size: inherit;
-}
-
-#mobile-indicator {
-    display: block;
-}
-
-#toggler-button {
-    display: block;
-    border: none;
-    background: #000;
-    color: #fff;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-#navbarNav {
-    width: 0;
-}
-
-.nav-link, .closebtn, #toggler-button, .navbar-brand {
-    color: #bbb;
-    font-size: 1rem; /*4.5rem*/
-    background-color: #000;
-}
-
-.navbar-brand img {
-    height: 1rem; /*4.5rem*/
-}
-
-#logo {
-    color: #92D050;
-}
-
-.nav-link {
-    margin: 25px auto;
-    text-align: center;
-}
-
-.navbar {
-    height: 150px;
-}
-
-.closebtn {
-    font-size: 1.33rem; /*6rem*/
-}
-
-.navbar-text {
-    width: 100%;
-}
-
-#accederButton {
-    background: #000;
-    font-size: 1rem; /*4.5rem*/
-    border-style: none;
-    width: 100%;
-    margin: 25px auto;
-}
-
-/*---------------------------------------------------------*/
-/*                  SIDEBAR WHEN MOBILE                    */
-/*---------------------------------------------------------*/
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    right: 0;
-    background-color: #000;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-    background-color: #000;
-}
-
-.sidenav a:hover {
-    color: #777;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    margin-left: 50px;
-}
-
-.sidenav img {
-    height: 2.5rem;
-    margin: auto;
-}
-
-.logo {
-    margin: auto;
-    margin-top: 0.5rem;
 }
 
 /*-----------------------------------------*/
@@ -150,6 +42,7 @@ body {
     border-radius: 5px;
     background-color: #fff;
     color: #000;
+    border-style: none;
 }
 
 .cicloparqueaderoSelector {
@@ -302,65 +195,11 @@ footer {
     text-align: center;
 }
 
-.username-button {
-    background-color: #000;
-    color: #fff;
-    font-size: 1rem;
-    border-style: none;
-    width: 100%;
-    cursor: pointer;
-}
-
-#logout-logo {
-    width: 100%;
-    height: 1rem;
-}
-
-a[href^='/login'] {
-    padding: 8px;
-}
-
-.login-button {
-    display: inherit;
-}
-
-#userProfileEntryForm {
-    margin: auto;
-}
-
 @media only screen and (min-device-width: 768px) {
     /*@media only screen and (min-width: 768px) {*/
-    #mobile-indicator {
-        display: none;
-    }
-
-    html {
-        font-size: 150%;
-    }
-
     html,
     body {
         height: calc(100vh - 4.67rem); /*estos 2.44rem (11rem) son los 11rem de margen del select*/
-    }
-
-    .navbar {
-        height: auto;
-    }
-
-    .navbar-brand img {
-        height: 1.33rem; /*2rem*/
-    }
-
-    .closebtn, #toggler-button {
-        font-size: 1.67rem; /*2.5rem*/
-    }
-
-    .navbar-brand img {
-        height: 1.5rem; /*4.5rem*/
-    }
-
-    .nav-link {
-        margin: 15px auto;
     }
 
     .select {
@@ -468,55 +307,9 @@ a[href^='/login'] {
 }
 
 @media only screen and (min-width: 992px) {
-
-    html {
-        font-size: 100%;
-    }
-
     html,
     body {
         height: calc(100vh - 7rem); /*estos 7rem de margen del select*/
-    }
-
-    #navbarNav {
-        width: 100%;
-        height: auto;
-    }
-
-    .nav-link {
-        margin: 0;
-    }
-
-    #toggler-button {
-        display: none;
-    }
-
-    .navbar-brand {
-        padding: 0;
-    }
-
-    .navbar-text {
-        padding: 0;
-        margin: 0 0 0 auto;
-        width: auto;
-    }
-
-    .navbar-brand img {
-        height: 2rem;
-    }
-
-    .navbar-brand {
-        font-size: 1.25rem;
-    }
-
-    #accederButton {
-        margin: 0;
-    }
-
-    .sidenav {
-        position: relative;
-        padding: auto;
-        padding-top: 0;
     }
 
     .select {
@@ -563,10 +356,6 @@ a[href^='/login'] {
         width: 50%;
         margin-top: -25%;
         margin-left: -25%;
-    }
-
-    #logout-logo {
-        width: 1rem;
     }
 }
 

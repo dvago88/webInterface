@@ -52,21 +52,21 @@ $('#loginForm').submit(function (event) {
             let redirectUrl = "userprofile";
             let jwt = data.jws;
             const $userEntryForm = $("#userProfileEntryForm");
+            let nombre = capitalizeFristLetter(data.userName);
 
             $userEntryForm.append(`
-                    <button class="username-button" type="submit">${capitalizeFristLetter(data.userName)}</button>
+                    <button class="username-button" type="submit">${nombre}</button>
                 `);
             $(".login-button").append(`<a href="/login"><img id="logout-logo" src="../../images/logout.svg" alt="logout-logo"/></a>`);
             $(".dropdown-login").hide();
             $userEntryForm.attr("action", redirectUrl);
-            $("#jwt").val(jwt);
-            $("#username").val(username);
-            // console.log("clear success");
-            // console.log(dataForTheChart);
-            // console.log(textStatus);
+            $(".jwt").val(jwt);
+            $(".username").val(username);
+            $(".primerNombre").val(nombre);
             console.log(jwt);
             currentUser = username;
             $("#loginForm").hide();
+            $("#home-button").attr("method", "post");
             document.getElementById("overlay").style.display = "none";
         }
 

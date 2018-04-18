@@ -1,38 +1,15 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout::head('Perfil','/css/user.css')">
+<head th:replace="layout::head('Perfil','/css/user2.css')">
 </head>
 <body>
+<div id="mobile-indicator"></div>
 <div id="wrapper" style="display:none;">
-    <div id="barra">
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:  #000000;">
-            <form th:action="@{|/|}" method="post">
-                <input id="username" name="username" th:value="${username}" type="hidden"/>
-                <input id="jwt" name="jwt" th:value="${jwt}" type="hidden"/>
-                <input id="primerNombre" name="primerNombre" type="hidden"/>
-                <button class="navbar-brand" id="logo" type="submit">CicloBosque</button>
-            </form>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="navbar-text login-button">
-                    <form class="form-inline" action="#" method="post">
-                        <button type="submit" class="close" aria-label="Close">
-                            <!--TODO: Poner el logo correcto-->
-                            <span aria-hidden="true" class="text-white">&times;</span>
-                        </button>
-                        <span>Salir</span>
-                    </form>
-                </div>
-            </div>
-        </nav>
-    </div>
+    <div th:replace="layout::barra"></div>
     <div class="container-fluid">
-        <div class="row h-100">
-            <div class="col-md-2 left-panel">
-                <div class="fondoBlanco h-100">
+        <div class="fila">
+            <div class="columna left-panel">
+                <div class="fondoBlanco">
                     <ul class="opciones">
                         <li>Mi Perfil</li>
                         <li>Mapa</li>
@@ -41,35 +18,35 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-4 content1">
-                <div class="row">
+            <div class="columna content1">
+                <div class="fila">
                     <h2 class="nombreUsuario">Bienvenido (Nombre usuario)</h2>
                 </div>
-                <div class="row cuadros">
-                    <div class="col">
-                        <div class="fondoBlanco h-100">
-                            <img width="80" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                <div class="fila cuadros">
+                    <div class="columna">
+                        <div class="fondoBlanco">
+                            <img class="place-holder-logo" th:src="@{/images/placeholderLogo.png}" alt=""/>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="fondoBlanco h-100">
-                            <img width="80" th:src="@{/images/placeholderLogo.png}" alt=""/>
-                        </div>
-                    </div>
-                </div>
-                <div class="row cuadros">
-                    <div class="col">
-                        <div class="fondoBlanco h-100">
-                            <img width="80" th:src="@{/images/placeholderLogo.png}" alt=""/>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="fondoBlanco h-100">
-                            <img width="80" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                    <div class="columna">
+                        <div class="fondoBlanco">
+                            <img class="place-holder-logo" th:src="@{/images/placeholderLogo.png}" alt=""/>
                         </div>
                     </div>
                 </div>
-                <div class="row grafica">
+                <div class="fila cuadros">
+                    <div class="columna">
+                        <div class="fondoBlanco">
+                            <img class="place-holder-logo" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                        </div>
+                    </div>
+                    <div class="columna">
+                        <div class="fondoBlanco">
+                            <img class="place-holder-logo" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                        </div>
+                    </div>
+                </div>
+                <div class="fila grafica">
                     <div class="fondoBlanco">
                         <div class="chart-container">
                             <div class="datosUsosMeses" style="display:none;">
@@ -91,15 +68,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 content2">
+            <div class="columna content2">
                 <div class="p-wordWrapper">
-                    <div class="row the-p-word">
+                    <div class="fila the-p-word">
                     </div>
                 </div>
-                <div class="row titulo-historial">
-                    <h2>Historial de préstamos del Mes</h2>
+                <div class="fila titulo-historial">
+                    <h2>Historial de préstamos</h2>
                 </div>
-                <div class="row tabla">
+                <div class="fila tabla">
                     <div class="fondoBlanco">
                         <table class="table table-sm table-responsive">
                             <thead>
@@ -114,18 +91,10 @@
                             </tr>
                             </thead>
                             <tbody>
-                           <!-- <tr>
-                                <th scope="row">1</th>
-                                <td>Ciudad del rio</td>
-                                <td>28/01/2017</td>
-                                <td>9:00</td>
-                                <td>Activo</td>
-                                <td>-</td>
-                                <td>-</td>
-                            </tr>-->
                             </tbody>
                         </table>
                     </div>
+                    <a href="#">Bajar el historial</a>
                 </div>
             </div>
         </div>
@@ -135,6 +104,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
 <!--javascript propio-->
 <script th:src="@{/javascript/charts/userChart.js}"></script>
+<script th:src="@{/javascript/commonApp.js}"></script>
+<script th:src="@{/javascript/userApp.js}"></script>
 <!--<script th:src="@{/javascript/ajax/ajaxUser.js}"></script>-->
 <script th:src="@{/javascript/ajax/fetchUser.js}"></script>
 </body>

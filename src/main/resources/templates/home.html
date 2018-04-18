@@ -4,67 +4,9 @@
 </head>
 <body>
 <div id="mobile-indicator"></div>
-<div id="overlay" onclick="off()"></div>
+<div id="overlay" onclick="apagarOverlay()"></div>
 <div class="wrapper">
-    <div id="barra">
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:  #000000;">
-            <a class="navbar-brand" id="logo" href="#">
-                <img th:src="@{images/logo.svg}" alt="logo"/>
-                CicloBosque</a>
-            <button type="button" id="toggler-button">
-                <span style="cursor:pointer" onclick="openNav()">&#9776;</span>
-            </button>
-            <div class="sidenav navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li><a style="display: none" href="javascript:void(0)" class="closebtn"
-                           onclick="closeNav()">&times;</a></li>
-                    <li class="logo" style="display: none"><img th:src="@{images/logo.svg}" alt="logo"/></li>
-                    <li class="nav-item active"><a class="nav-link" href="#">Inicio<span
-                            class="sr-only">(current)</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Productos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Servicios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Parqueo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
-                </ul>
-                <div class="navbar-text login-button">
-                    <form id="userProfileEntryForm" action="#" method="post">
-                        <input id="jwt" name="jwt" type="hidden" th:value="${jwt}"/>
-                        <input id="username" name="username" type="hidden" th:value="${username}"/>
-                        <input id="primerNombre" name="primerNombre" type="hidden" th:value="${primerNombre}"/>
-                    </form>
-                    <div class="dropdown dropdown-login">
-                        <button onclick="on()" class="btn btn-secondary dropdown-toggle" type="button" id="accederButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Acceder
-                        </button>
-                        <form id="loginForm" class="dropdown-menu p-3 loginForm">
-                            <div class="form-group">
-                                <label for="usernameInput">Usuario</label>
-                                <input type="text" class="form-control" id="usernameInput"
-                                       placeholder="Nombre Usuario"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Contraseña</label>
-                                <input type="password" class="form-control" id="password" placeholder="Contraseña"/>
-                            </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="dropdownCheck2"/>
-                                <label class="form-check-label" for="dropdownCheck2">
-                                    Remember me
-                                </label>
-                            </div>
-                            <div class="botones">
-                                <button id="sendButton" type="submit" class="btn btn-primary">Entrar</button>
-                                <button id="cancelButton" type="button" onclick="off()" class="btn btn-primary">
-                                    Cancelar
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
+    <div th:replace="layout::barra"></div>
 
     <div class="container select">
         <div class="dropdown dropdown-parqueaderos">
@@ -113,19 +55,15 @@
         </div>
     </div>
 </div>
-
 <footer class="realFooter">
     <div class="container-fluid">
         <div class="row">
-
-
             <div class="col-md-7 toe">
                 <ul>
                     <li><span class="text-muted">Contacto: comercial.jvl@gmail.com - 300 457 2486</span></li>
                     <li><span class="text-muted">Cra 53 #84-21 Itagüi, Antioquia</span></li>
                 </ul>
             </div>
-
             <div class="col-md-4 redes toe">
                 <ul>
                     <li><a href="#" class="fa fa-facebook"></a></li>
@@ -141,8 +79,8 @@
         </div>
     </div>
 </footer>
-
-<script th:src="@{/javascript/app.js}"></script>
+<script th:src="@{/javascript/commonApp.js}"></script>
+<script th:src="@{/javascript/homeApp.js}"></script>
 <script th:src="@{/javascript/ajax/ajaxHome.js}"></script>
 </body>
 </html>
