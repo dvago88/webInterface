@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout::head('Inicio','/css/home.css')">
-</head>
+<head th:replace="layout::head('Inicio','/css/home.css')"></head>
 <body>
 <div id="mobile-indicator"></div>
 <div id="overlay" onclick="apagarOverlay()"></div>
 <div class="wrapper">
     <div th:replace="layout::barra"></div>
-
     <div class="container select">
         <div class="dropdown dropdown-parqueaderos">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="selector" data-toggle="dropdown"
@@ -21,7 +19,6 @@
             </div>
         </div>
     </div>
-
     <div class="container infoCiclas" style="display:none;">
     <!--<div class="container infoCiclas">-->
         <div class="row justify-content-center cajas">

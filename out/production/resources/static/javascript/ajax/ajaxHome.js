@@ -38,7 +38,6 @@ $("#ciudadRio").click(function () {
 $('#loginForm').submit(function (event) {
     let url;
     url = baseUrl + "perform_login";
-    // url = baseUrl + 'login';
     event.preventDefault();
     let username = $('#usernameInput').val();
     let data = 'username=' + username + '&password=' + $('#password').val();
@@ -88,14 +87,4 @@ $(document).on('click', '.username', function () {
         url = baseUrl + "user/" + currentUser;
         console.log("entró aquí wiiii!!!");
     }
-
-    /*   fetch(url)
-           .then(response => response.json())
-           .then(dataForTheChart => console.log(dataForTheChart));*/
-
-    /*$.getJSON(url, function (dataForTheChart) {
-        console.log(dataForTheChart);
-    }).fail(function (jqXHR) {
-        console.log(jqXHR);
-    });*/
 });

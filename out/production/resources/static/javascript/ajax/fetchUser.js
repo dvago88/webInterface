@@ -22,8 +22,35 @@ $(document).ready(function () {
     fectchData(url, data)
         .then(data => showPage(data))
         .catch(error => errorHandlerUserPage(error));
+    populateChart("perro");
 });
 
+/*----------------------------------------------------*/
+//GET USER INFO WHEN THERE'S NO HISTORIC DATA
+/*----------------------------------------------------*/
+
+function getOnlyUserInfo() {
+    let $username = $("#username").val();
+    let url = "http://localhost:8090/user/username/" + $username;
+    // let url = "https://aqueous-temple-46001.herokuapp.com/user/username" + $username;
+    let jwt = $("#jwt").val();
+    const test = "Bearer " + jwt;
+    console.log("test");
+    console.log(jwt);
+    console.log($username);
+    console.log("finish test");
+    let data = {
+        method: 'GET',
+        headers: {
+            "Authentication": test,
+            "Authorization": $username
+        },
+        mode: 'cors',
+    };
+    fectchData(url, data)
+        .then(data => showName(data))
+        .catch(error => errorHandlerUserPage(error));
+}
 
 /*----------------------------------------------------*/
 //HELPER FUNCTIONS
@@ -49,8 +76,19 @@ function checkStatus(response) {
 }
 
 function showPage(data) {
-    //todo revisar si es mujer para poner bienvenida
-    const sexo = data[0].user.sexo;
+    console.dir(data);
+    if (data.length === 0) {
+        getOnlyUserInfo();
+    }
+    showName(data[0].user);
+    populateTable(data);
+    // populateChart(data);
+    return data;
+}
+
+function showName(user) {
+    const sexo = user.sexo;
+    const nombre = user.primerNombre;
     let letraFinal;
     if (sexo === "F") {
         letraFinal = "a";
@@ -59,23 +97,44 @@ function showPage(data) {
     } else {
         letraFinal = "@";
     }
-    console.dir(data);
     $("#wrapper").css("display", "block");
-    $(".nombreUsuario").text(`Bienvenid${letraFinal} ${capitalizeFristLetter(data[0].user.primerNombre)}`); //muestra el nombre
-    $("#primerNombre").val(data[0].user.primerNombre);
+    $(".nombreUsuario").text(`Bienvenid${letraFinal} ${capitalizeFristLetter(nombre)}`); //muestra el nombre
+    $("#primerNombre").val(nombre);
+    displayNameIfLogin(nombre);
+    $lista = $(".opciones");
+    if (user.role.id <= 3) {
+        ifMiniAdmin($lista);
 
-    populateTable(data);
-    populateChart(data);
-    displayNameIfLogin(data[0].user.primerNombre);
+    }
+    if (user.role.id <= 2) {
+        ifAdmin($lista);
+    }
+}
 
-    return data;
+function ifMiniAdmin($lista) {
+    $lista.append(`
+                <li>Estadísticas</li>     
+                <li>Participantes</li>`)
+    $lista.prepend(`<li>Dashboard</li>`)
+}
+
+function ifAdmin($lista) {
+    $lista.append(`
+                            <li>Organizaciones</li>
+                            <li>Control Módulos</li>
+                            <li>Mapa</li>
+                            <li>Publicidad</li>`)
 }
 
 function populateTable(data) {
     let $tableBody = $("tbody");
-    let counter = 0;
+    let counter = 6;
+    let dataLength = data.length;
+    if (dataLength < counter) {
+        counter = dataLength;
+    }
 
-    for (let index = 0; index < 6; index++) {
+    for (let index = 0; index < counter; index++) {
         const currentValue = data[index];
         let date = new Date(currentValue.fechaIngreso);
         let dia = date.getDate();
@@ -115,49 +174,6 @@ function populateTable(data) {
             </tr>
         `);
     }
-    data.forEach(function (currentValue, index) {
-        counter++;
-        if (counter === 6) {
-            return;
-        }
-        /* let date = new Date(currentValue.fechaIngreso);
-         let dia = date.getDate();
-         let mes = date.getMonth() + 1;
-         let ano = date.getFullYear();
-         let hora = date.getHours();
-         let minuto = date.getMinutes();
-         const fechaIngreso = `${dia}/${mes}/${ano}`;
-         const horaIngreso = `${hora}:${minuto}`;
-         let activo;
-         let fechaSalida;
-         let horaSalida;
-         if (currentValue.fechaSalida === null) {
-             activo = "Activo";
-             fechaSalida = "-";
-             horaSalida = "-";
-         } else {
-             activo = "Cerrado";
-             date = new Date(currentValue.fechaSalida);
-             dia = date.getDate();
-             mes = date.getMonth() + 1;
-             ano = date.getFullYear();
-             hora = date.getHours();
-             minuto = date.getMinutes();
-             fechaSalida = `${dia}/${mes}/${ano}`;
-             horaSalida = `${hora}:${minuto}`;
-         }
-         $tableBody.append(`
-             <tr>
-                 <th scope="row">${index + 1}</th>
-                 <td>Ciudad del rio</td>
-                 <td>${fechaIngreso}</td>
-                 <td>${horaIngreso}</td>
-                 <td>${activo}</td>
-                 <td>${fechaSalida}</td>
-                 <td>${horaSalida}</td>
-             </tr>
-         `);*/
-    });
 }
 
 function populateChart(data) {
@@ -175,11 +191,7 @@ function populateChart(data) {
     $cantidadMes5.text(10);
     $cantidadMes6.text(10);
 
-    let myChart = new Chart(ctx, {
-        type: 'bar',
-        data: dataForTheChart,
-        options: options
-    });
+    // myChart.update();
 }
 
 

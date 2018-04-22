@@ -1,48 +1,54 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout::head('Perfil','/css/user2.css')">
+<head th:replace="layout::head('Perfil','/css/userprofile1.css')">
 </head>
 <body>
 <div id="mobile-indicator"></div>
 <div id="wrapper" style="display:none;">
     <div th:replace="layout::barra"></div>
     <div class="container-fluid">
-        <div class="fila">
+        <div class="fila fila-principal">
+            <div id="hiddenButton">
+                <button id="verHiddenPanelButton" type="button">Opciones</button>
+            </div>
             <div class="columna left-panel">
                 <div class="fondoBlanco">
                     <ul class="opciones">
                         <li>Mi Perfil</li>
                         <li>Mapa</li>
                         <li>Mis Incentivos</li>
-                        <li>Participantes</li>
                     </ul>
                 </div>
             </div>
             <div class="columna content1">
                 <div class="fila">
-                    <h2 class="nombreUsuario">Bienvenido (Nombre usuario)</h2>
+                    <h2 class="nombreUsuario subtitulo">Bienvenido (Nombre usuario)</h2>
                 </div>
                 <div class="fila cuadros">
-                    <div class="columna">
+                    <div class="columna uno">
                         <div class="fondoBlanco">
                             <img class="place-holder-logo" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                            <h3>Aqui van a haber estadisticas y más</h3>
                         </div>
                     </div>
-                    <div class="columna">
+                    <div class="columna dos">
                         <div class="fondoBlanco">
                             <img class="place-holder-logo" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                            <h3>Aqui van a haber estadisticas y más</h3>
                         </div>
                     </div>
                 </div>
                 <div class="fila cuadros">
-                    <div class="columna">
+                    <div class="columna uno">
                         <div class="fondoBlanco">
                             <img class="place-holder-logo" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                            <h3>Aqui van a haber estadisticas y más</h3>
                         </div>
                     </div>
-                    <div class="columna">
+                    <div class="columna dos">
                         <div class="fondoBlanco">
                             <img class="place-holder-logo" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                            <h3>Aqui van a haber estadisticas y más</h3>
                         </div>
                     </div>
                 </div>
@@ -74,7 +80,7 @@
                     </div>
                 </div>
                 <div class="fila titulo-historial">
-                    <h2>Historial de préstamos</h2>
+                    <h2 class="subtitulo">Historial de préstamos</h2>
                 </div>
                 <div class="fila tabla">
                     <div class="fondoBlanco">
@@ -94,7 +100,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <a href="#">Bajar el historial</a>
+                    <a href="#">Descargar historial</a>
                 </div>
             </div>
         </div>
@@ -103,7 +109,7 @@
 <!--CDN charts-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
 <!--javascript propio-->
-<script th:src="@{/javascript/charts/userChart.js}"></script>
+<script th:src="@{/javascript/charts/userChart1.js}"></script>
 <script th:src="@{/javascript/commonApp.js}"></script>
 <script th:src="@{/javascript/userApp.js}"></script>
 <!--<script th:src="@{/javascript/ajax/ajaxUser.js}"></script>-->

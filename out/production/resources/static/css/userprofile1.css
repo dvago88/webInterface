@@ -1,0 +1,265 @@
+/*-----------------------------------------*/
+/*BODY                                     */
+/*-----------------------------------------*/
+body {
+    background-color: #eee;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.fila {
+    display: flex;
+    flex-direction: column;
+}
+
+.content1, .content2 {
+    flex: 0 0 95%;
+    max-width: 95%;
+    margin: auto;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1rem;
+}
+
+.fondoBlanco {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.subtitulo {
+    margin: 1rem auto;;
+}
+
+/*......................*/
+/*Panel izquierdo       */
+/*......................*/
+
+.left-panel {
+    display: none;
+}
+
+#hiddenButton {
+    display: block;
+    margin: 2.4rem 0 auto 0;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+#verHiddenPanelButton {
+    background-color: #fff;
+    color: #000;
+    width: 100%;
+}
+
+.left-panel li {
+    list-style: none;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.left-panel {
+    margin: 0 0 auto 0;
+    flex: 0 0 100%;
+    max-width: 100%;
+    background-color: #fff;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.left-panel .fondoBlanco {
+    margin-top: 2.4rem;
+}
+
+.opciones {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+}
+
+/*......................*/
+/*Panel central         */
+/*......................*/
+h3 {
+    margin: 0;
+}
+
+.place-holder-logo {
+    width: 200px;
+}
+
+.chart-container {
+    height: 8rem;
+}
+
+.cuadros .fondoBlanco, .tabla .fondoBlanco, .grafica .fondoBlanco {
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.uno, .dos {
+    margin: 25px 0;
+}
+
+.uno h3, .dos h3 {
+    display: inline;
+}
+
+.uno .fondoBlanco, .dos .fondoBlanco {
+    padding: 8px;
+}
+
+.grafica {
+    margin: 1rem auto auto auto;
+}
+
+/*......................*/
+/*Panel derecho         */
+/*......................*/
+
+.p-wordWrapper {
+    height: 40vh;
+    padding: 25px 5px 5px 5px;
+}
+
+.the-p-word {
+    background-color: #bb0000;
+    width: 100%;
+    height: 100%;
+}
+
+table th, table tr {
+    font-size: 0.75rem;
+}
+
+@media only screen and (min-device-width: 768px) {
+    .left-panel {
+        display: block;
+    }
+
+    #hiddenButton {
+        display: none;
+    }
+
+    .left-panel .fondoBlanco {
+        margin-top: 3.5rem;
+    }
+
+    .opciones {
+        height: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .content1, .content2 {
+        margin: auto 1rem;
+    }
+
+    .place-holder-logo {
+        width: 100px;
+    }
+
+    .cuadros {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .uno, .dos {
+        margin: 8px;
+    }
+
+    .uno {
+        margin-right: 0.75rem;
+    }
+
+    .dos {
+        margin-left: 0.75rem;
+    }
+
+    .columna {
+        flex: 0 0 calc(50% - 0.75rem); /*los 0.75 rem del margin*/
+        max-width: 100%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    html,
+    body {
+        height: calc(100vh - 3.486rem);
+    }
+
+    .container-fluid {
+        margin-top: 3.486rem;
+    }
+
+    .fila {
+        flex-direction: row;
+    }
+
+    .content1, .content2 {
+        flex: 0 0 calc(50vw - 6.111rem - 2rem);
+        max-width: calc(50vw - 6.111rem - 2rem);
+        margin: 0 1rem;
+    }
+
+    .left-panel {
+        flex: 0 0 12.221rem;
+        max-width: 12.221rem;
+        margin: 0;
+    }
+
+    .left-panel li {
+        text-align: left;
+        margin-bottom: 20px;
+        padding-left: 10px;
+    }
+
+    .left-panel .fondoBlanco {
+        margin: 0;
+    }
+
+    .left-panel ul {
+        padding-top: 16px;
+    }
+
+    .opciones {
+        flex-wrap: initial;
+        height: calc(100vh - 3.486rem);
+        margin: 0;
+    }
+
+    .place-holder-logo {
+        width: 80px;
+    }
+
+    /*Esto vuelve responsivo el chart*/
+    .chart-container {
+        position: relative;
+        margin: auto;
+        height: 30vh;
+        width: 36.921vw;
+    }
+
+    .tabla {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .chart-container {
+        position: relative;
+        margin: auto;
+        height: 30vh;
+        width: 577px;
+    }
+
+}
+
+
+
+
+
