@@ -275,7 +275,7 @@ function displayNameIfLogin(nombre) {
     $userEntryForm.append(`
                     <button class="username-button" type="submit">${capitalizeFristLetter(nombre)}</button>
                 `);
-    $(".login-button").append(`<a href="/login"><img id="logout-logo" src="../../images/logout.svg" alt="logout-logo"/></a>`);
+    $(".login-button").append(`<a class="padding-8" href="/"><img id="logout-logo" src="../../images/logout.svg" alt="logout-logo"/></a>`);
     $(".dropdown-login").hide();
     $userEntryForm.attr("action", redirectUrl);
     $("#loginForm").hide();

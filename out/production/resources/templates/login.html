@@ -2,8 +2,12 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="layout::head('Login','/css/login.css')"></head>
 <body>
+<div th:replace="layout::barra"></div>
 <div class="container">
     <form th:replace="layout::login"></form>
 </div>
+<script th:src="@{/javascript/commonApp.js}"></script>
+<script th:src="@{/javascript/homeApp.js}"></script>
+<script th:src="@{/javascript/ajax/ajaxHome.js}"></script>
 </body>
 </html>

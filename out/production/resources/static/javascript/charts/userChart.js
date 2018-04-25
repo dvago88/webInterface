@@ -27,9 +27,21 @@ function obatainGraphData() {
             data: [$cantidadMes1.text(), $cantidadMes2.text(), $cantidadMes3.text(), $cantidadMes4.text(), $cantidadMes5.text(), $cantidadMes6.text()],
             backgroundColor: [
                 barColor,
+                barColor,
+                barColor,
+                barColor,
+                barColor,
+                'rgba(255, 159, 64, 0.2)'
+
             ],
             borderColor: [
                 borderBarColor,
+                borderBarColor,
+                borderBarColor,
+                borderBarColor,
+                borderBarColor,
+                'rgba(255, 159, 64, 1)'
+
             ],
             borderWidth: 1
         }]
@@ -62,19 +74,9 @@ function graphForAdmins() {
             label: 'Numero de Usuarios Mensuales',
             data: [100, 150, 80, 170, 163, 185],
             backgroundColor: [
-                barColor,
-                barColor,
-                barColor,
-                barColor,
-                barColor,
                 'rgba(255, 159, 64, 0.2)'
             ],
             borderColor: [
-                borderBarColor,
-                borderBarColor,
-                borderBarColor,
-                borderBarColor,
-                borderBarColor,
                 'rgba(255, 159, 64, 1)'
             ],
             hoverBorderWidth: [3, 3, 3, 3, 3],

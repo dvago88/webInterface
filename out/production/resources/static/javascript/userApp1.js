@@ -2,7 +2,15 @@ let $contenido = $(".container-fluid");
 
 $("#verHiddenPanelButton").click(() => {
     $("#hiddenButton").hide();
+    $(".left-panel").append(`<button id="retraer-panel" type="button">Retraer panel</button>`);
     $(".left-panel").show(1000);
+});
+$(document).on('click',"#retraer-panel", function () {
+// $("#retraer-panel").click(() => {
+    console.log("WTF");
+    $(".left-panel").hide(1000);
+    $("#hiddenButton").show(500);
+    $("#retraer-panel").remove();
 });
 
 $(".en-construccion").click(() => {

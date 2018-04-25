@@ -1,5 +1,3 @@
-//TODO: general: encriptar siempre que se mande usuario y password a la api
-
 let baseUrl = "http://localhost:8090/";
 let currentUser = null;
 
@@ -56,7 +54,7 @@ $('#loginForm').submit(function (event) {
             $userEntryForm.append(`
                     <button class="username-button" type="submit">${nombre}</button>
                 `);
-            $(".login-button").append(`<a href="/login"><img id="logout-logo" src="../../images/logout.svg" alt="logout-logo"/></a>`);
+            $(".login-button").append(`<a class="padding-8" href="/"><img id="logout-logo" src="../../images/logout.svg" alt="logout-logo"/></a>`);
             $(".dropdown-login").hide();
             $userEntryForm.attr("action", redirectUrl);
             $(".jwt").val(jwt);

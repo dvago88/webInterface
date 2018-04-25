@@ -108,7 +108,9 @@
     height: 1rem;
 }
 
-a[href^='/login'] {
+/*a[href^='/'] {*/
+a[class^='padding'] {
+    /*.padding-8 {*/
     padding: 8px;
 }
 
