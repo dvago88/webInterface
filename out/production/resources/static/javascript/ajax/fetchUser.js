@@ -19,10 +19,13 @@ $(document).ready(function () {
         },
         mode: 'cors',
     };
-    fectchData(url, data)
+    data = fectchData(url, data)
         .then(data => showPage(data))
         .catch(error => errorHandlerUserPage(error));
-    populateChart("perro");
+
+    console.log("new data: ");
+    console.log(data);
+    // populateChart(data);
 });
 
 /*----------------------------------------------------*/
@@ -48,7 +51,7 @@ function getOnlyUserInfo() {
         mode: 'cors',
     };
     fectchData(url, data)
-        .then(data => showName(data))
+        .then(data => showNameAndGraphs([{"user": data}]))
         .catch(error => errorHandlerUserPage(error));
 }
 
@@ -79,16 +82,22 @@ function showPage(data) {
     console.dir(data);
     if (data.length === 0) {
         getOnlyUserInfo();
+    } else {
+        let needsToPopulateTable = showNameAndGraphs(data);
+        if (needsToPopulateTable) {
+            console.log("Usuario Normal")
+        } else {
+            console.log("Admin");
+        }
     }
-    showName(data[0].user);
-    populateTable(data);
-    // populateChart(data);
+
     return data;
 }
 
-function showName(user) {
+function showNameAndGraphs(data) {
+    user = data[0].user;
     const sexo = user.sexo;
-    const nombre = user.primerNombre;
+    const nombre = capitalizeFristLetter(user.primerNombre);
     let letraFinal;
     if (sexo === "F") {
         letraFinal = "a";
@@ -98,8 +107,8 @@ function showName(user) {
         letraFinal = "@";
     }
     $("#wrapper").css("display", "block");
-    $(".nombreUsuario").text(`Bienvenid${letraFinal} ${capitalizeFristLetter(nombre)}`); //muestra el nombre
-    $("#primerNombre").val(nombre);
+    $(".nombreUsuario").text(`Bienvenid${letraFinal} ${nombre}`); //muestra el nombre
+    $(".primerNombre").val(nombre);
     displayNameIfLogin(nombre);
     $lista = $(".opciones");
     if (user.role.id <= 3) {
@@ -108,22 +117,38 @@ function showName(user) {
     }
     if (user.role.id <= 2) {
         ifAdmin($lista);
+        graphForAdmins();
+        crearGrafica("line");
+        populateTable(data);
+        pieChartForAdmins();
+        crearGrafica("pie");
+        return false;
     }
+    populateTable(data);
+    populateChart(data);
+    return true;
 }
 
 function ifMiniAdmin($lista) {
     $lista.append(`
-                <li>Estadísticas</li>     
-                <li>Participantes</li>`)
-    $lista.prepend(`<li>Dashboard</li>`)
+                <li class="en-construccion">Estadísticas</li>     
+                <li class="en-construccion">Participantes</li>`)
 }
 
 function ifAdmin($lista) {
     $lista.append(`
-                            <li>Organizaciones</li>
-                            <li>Control Módulos</li>
-                            <li>Mapa</li>
-                            <li>Publicidad</li>`)
+                            <li class="en-construccion">Organizaciones</li>
+                            <li class="en-construccion">Control Módulos</li>
+                            <li class="en-construccion">Mapa</li>
+                            <li class="en-construccion">Publicidad</li>`);
+    // $("head").append(`<link rel="stylesheet" href="/css/adminchanges1.css"/>`);
+    $(".the-p-word img").detach();
+    $(".the-p-word").append(
+        `                <div class="chart-container">
+                             <canvas id="myChart2"></canvas>
+                         </div>`
+    );
+    $(".titulo-historial h2").text("Historial de préstamos de Usuarios");
 }
 
 function populateTable(data) {
@@ -177,21 +202,65 @@ function populateTable(data) {
 }
 
 function populateChart(data) {
-    let $cantidadMes1 = $("#cantidadMes1");
-    let $cantidadMes2 = $("#cantidadMes2");
-    let $cantidadMes3 = $("#cantidadMes3");
-    let $cantidadMes4 = $("#cantidadMes4");
-    let $cantidadMes5 = $("#cantidadMes5");
-    let $cantidadMes6 = $("#cantidadMes6");
+    let meses = [
+        $("#cantidadMes1"),
+        $("#cantidadMes2"),
+        $("#cantidadMes3"),
+        $("#cantidadMes4"),
+        $("#cantidadMes5"),
+        $("#cantidadMes6")
+    ];
 
-    $cantidadMes1.text(10);
-    $cantidadMes2.text(10);
-    $cantidadMes3.text(10);
-    $cantidadMes4.text(10);
-    $cantidadMes5.text(10);
-    $cantidadMes6.text(10);
+    //Para que si el loop de adelante se sale antes igual haya algún valor asignado
+    meses.forEach((mes) => {
+        // mes.text(0);
+        mes.text(Math.floor(Math.random() * 10)); //mientras tanto para ver datos...
+    });
 
-    // myChart.update();
+    /*const dataLength = data.length;
+    const date = new Date();
+    const year = date.getFullYear();
+    let month = date.getMonth();
+    let dateChecker;
+    let yearChecker;
+    let monthChecker;
+    let contador = 0;
+    let index = 0;
+    //TODO: mirar como almacenar esto para no tener que hacer este loop cada vez que el usuario entra o refresca la pag
+    for (let i = dataLength - 1; i >= 0; i--) {
+        let currentValue = data[i];
+
+        if (currentValue.fechaSalida !== null) {
+            dateChecker = new Date(currentValue.fechaSalida);
+            yearChecker = dateChecker.getFullYear();
+            monthChecker = dateChecker.getMonth();
+            let differentYear = month - monthChecker;
+            console.log(month);
+            console.log(monthChecker);
+            if (year - yearChecker <= 1 && differentYear >= 0) {
+                if (monthChecker === month) {
+                    contador++;
+                } else {
+                    console.log("Valor de contador: " + contador);
+                    meses[index].text(contador);
+                    index++;
+                    month--;
+                    contador = 0;
+
+                    if (month === -1) {
+                        month = 11;
+                    }
+                }
+            } else {
+                index += month + 1;
+            }
+            if (index === 6) {
+                i = -1;
+            }
+        }
+    }*/
+    obatainGraphData();
+    crearGrafica("bar");
 }
 
 

@@ -1,53 +1,46 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="layout::head('Perfil','/css/userprofile1.css')">
+<head th:replace="layout::head('Perfil','/css/userprofile.css')">
 </head>
 <body>
 <div id="mobile-indicator"></div>
 <div id="wrapper" style="display:none;">
     <div th:replace="layout::barra"></div>
+    <div th:replace="layout::panelLateral"></div>
     <div class="container-fluid">
         <div class="fila fila-principal">
-            <div id="hiddenButton">
-                <button id="verHiddenPanelButton" type="button">Opciones</button>
-            </div>
-            <div class="columna left-panel">
-                <div class="fondoBlanco">
-                    <ul class="opciones">
-                        <li>Mi Perfil</li>
-                        <li>Mapa</li>
-                        <li>Mis Incentivos</li>
-                    </ul>
-                </div>
-            </div>
             <div class="columna content1">
                 <div class="fila">
                     <h2 class="nombreUsuario subtitulo">Bienvenido (Nombre usuario)</h2>
                 </div>
-                <div class="fila cuadros">
+                <div class="fila cuadros cuadros-a">
                     <div class="columna uno">
                         <div class="fondoBlanco">
-                            <img class="place-holder-logo" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                            <img class="place-holder-logo" th:src="@{/images/placeholderLogo.png}"
+                                 alt="Place holder para el logo"/>
                             <h3>Aqui van a haber estadisticas y más</h3>
                         </div>
                     </div>
                     <div class="columna dos">
                         <div class="fondoBlanco">
-                            <img class="place-holder-logo" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                            <img class="place-holder-logo" th:src="@{/images/placeholderLogo.png}"
+                                 alt="Place holder para el logo"/>
                             <h3>Aqui van a haber estadisticas y más</h3>
                         </div>
                     </div>
                 </div>
-                <div class="fila cuadros">
+                <div class="fila cuadros cuadros-b">
                     <div class="columna uno">
                         <div class="fondoBlanco">
-                            <img class="place-holder-logo" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                            <img class="place-holder-logo" th:src="@{/images/placeholderLogo.png}"
+                                 alt="Place holder para el logo"/>
                             <h3>Aqui van a haber estadisticas y más</h3>
                         </div>
                     </div>
                     <div class="columna dos">
                         <div class="fondoBlanco">
-                            <img class="place-holder-logo" th:src="@{/images/placeholderLogo.png}" alt=""/>
+                            <img class="place-holder-logo" th:src="@{/images/placeholderLogo.png}"
+                                 alt="Place holder para el logo"/>
                             <h3>Aqui van a haber estadisticas y más</h3>
                         </div>
                     </div>
@@ -77,6 +70,7 @@
             <div class="columna content2">
                 <div class="p-wordWrapper">
                     <div class="fila the-p-word">
+                        <img id="p-word_image" th:src="@{/images/p-word.svg}" alt="Imagen que dice publicidad"/>
                     </div>
                 </div>
                 <div class="fila titulo-historial">
@@ -109,9 +103,9 @@
 <!--CDN charts-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
 <!--javascript propio-->
-<script th:src="@{/javascript/charts/userChart1.js}"></script>
+<script th:src="@{/javascript/charts/userChart.js}"></script>
 <script th:src="@{/javascript/commonApp.js}"></script>
-<script th:src="@{/javascript/userApp.js}"></script>
+<script th:src="@{/javascript/userApp1.js}"></script>
 <!--<script th:src="@{/javascript/ajax/ajaxUser.js}"></script>-->
 <script th:src="@{/javascript/ajax/fetchUser.js}"></script>
 </body>

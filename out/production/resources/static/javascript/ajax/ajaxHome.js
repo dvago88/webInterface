@@ -39,7 +39,7 @@ $('#loginForm').submit(function (event) {
     let url;
     url = baseUrl + "perform_login";
     event.preventDefault();
-    let username = $('#usernameInput').val();
+    let username = $('#usernameInput').val().toLowerCase();
     let data = 'username=' + username + '&password=' + $('#password').val();
 
     $.ajax(url, {

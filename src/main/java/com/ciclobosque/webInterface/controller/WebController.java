@@ -36,7 +36,7 @@ public class WebController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String homeLogged(@RequestParam("username") String username, Model model,
                              @RequestParam("jwt") String jwt,
-                             @RequestParam("primerNombre") String primerNombre){
+                             @RequestParam("primerNombre") String primerNombre) {
         model.addAttribute("username", username);
         model.addAttribute("jwt", jwt);
         model.addAttribute("primerNombre", primerNombre);
@@ -60,13 +60,21 @@ public class WebController {
                 mesInicial = -i - 1;
             }
         }
-
-//        TODO: pasar el id del usuario
         return "users/user";
     }
 
     @RequestMapping("/login")
     public String loginPage() {
         return "login";
+    }
+
+    @RequestMapping(value = "/construccion", method = RequestMethod.POST)
+    public String construccion(@RequestParam("username") String username, Model model,
+                               @RequestParam("jwt") String jwt,
+                               @RequestParam("primerNombre") String primerNombre) {
+        model.addAttribute("username", username);
+        model.addAttribute("jwt", jwt);
+        model.addAttribute("primerNombre", primerNombre);
+        return "underConstruction";
     }
 }

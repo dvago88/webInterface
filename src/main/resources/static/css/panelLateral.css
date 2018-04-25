@@ -1,0 +1,108 @@
+.left-panel {
+    display: none;
+}
+
+#hiddenButton {
+    display: block;
+    margin: 2.4rem 0 auto 0;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+#verHiddenPanelButton {
+    background-color: #fff;
+    color: #000;
+    width: 100%;
+}
+
+.left-panel li {
+    list-style: none;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.left-panel {
+    margin: 0 0 auto 0;
+    flex: 0 0 100%;
+    max-width: 100%;
+    background-color: #fff;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.left-panel .fondoBlanco {
+    margin-top: 2.4rem;
+}
+
+.opciones {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+}
+
+.opciones li {
+    cursor: pointer;
+}
+
+@media only screen and (min-device-width: 768px) {
+    .left-panel {
+        display: block;
+    }
+
+    #hiddenButton {
+        display: none;
+    }
+
+    .left-panel .fondoBlanco {
+        margin-top: 3.5rem;
+    }
+
+    .opciones {
+        height: 3rem;
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #panel-lateral {
+        position: absolute;
+        z-index: 10;
+        width: 12.221rem;
+        margin-top: 3.486rem;
+        top: 0;
+    }
+
+    .left-panel {
+        max-width: 12.221rem;
+        margin: 0;
+    }
+
+    .left-panel li {
+        text-align: left;
+        margin-bottom: 20px;
+        padding-left: 10px;
+    }
+
+    .left-panel .fondoBlanco {
+        margin: 0;
+    }
+
+    .left-panel ul {
+        padding-top: 16px;
+    }
+
+    .opciones {
+        flex-wrap: initial;
+        height: calc(100vh - 3.486rem);
+        margin: 0;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
+
+
+
+
+

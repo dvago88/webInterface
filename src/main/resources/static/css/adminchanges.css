@@ -1,0 +1,50 @@
+.grafica {
+    width: 100%;
+}
+
+@media only screen and (min-width: 992px) {
+    .content1 {
+        flex: 0 0 calc(100vw - 12.222rem - 2rem);
+        max-width: calc(100vw - 12.222rem - 2rem);
+        margin: 0 1rem;
+        height: 50%;
+    }
+
+    .grafica {
+        position: absolute;
+        left: 12.221rem;
+        top: 50%;
+        margin-left: 1rem;
+        width: calc(50vw - 6.111rem - 2rem);
+    }
+
+    .grafica2 {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        width: calc(50vw - 6.111rem - 2rem);
+    }
+
+    .cuadros-a {
+        float: left;
+        width: calc(50% - 1rem);
+    }
+
+    .cuadros-b {
+        float: right;
+        width: calc(50% - 1rem);
+    }
+
+    .cuadros-a .dos {
+        margin-right: 0;
+    }
+
+    .cuadros-b .uno {
+        margin-left: 0;
+    }
+
+    .chart-container {
+        height: 35vh;
+        width: calc(100vw - 12.222rem - 2rem);
+    }
+}
